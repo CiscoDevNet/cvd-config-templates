@@ -1,0 +1,27 @@
+#jinja2: lstrip_blocks: "true"
+<config>
+  <native xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-native">
+    <interface>
+    {% for id, vlan in vlan_data.items() %}
+      {% if vlan['ipv4_network'] is defined %}
+      <Vlan>
+        <name>{{ id }}</name>
+        <ip>
+          <address>
+            <primary>
+              <address>{{ vlan['ipv4_network']|ipaddr('1')|ipaddr('address') }}</address>
+              <mask>{{ vlan['ipv4_network']|ipaddr('netmask') }}</mask>
+            </primary>
+          </address>
+          {% if vlan['dhcp_helper'] is defined %}
+          <helper-address>
+            <address>{{ 'dhcp_helper' }}</address>
+          </helper-address>
+          {% endif %}
+        </ip>
+      </Vlan>
+      {% endif %}
+    {% endfor %}
+    </interface>
+  </native>
+</config>

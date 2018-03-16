@@ -1,0 +1,54 @@
+class-map match-any PRIORITY-QUEUE
+  match dscp ef
+  match dscp cs5
+  match dscp cs4
+class-map match-any CONTROL-MGMT-QUEUE
+  match dscp cs7
+  match dscp cs6
+  match dscp cs3
+  match dscp cs2
+class-map match-any MULTIMEDIA-CONFERENCING-QUEUE
+  match dscp af43
+  match dscp af42
+  match dscp af41
+class-map match-any MULTIMEDIA-STREAMING-QUEUE
+  match dscp af33
+  match dscp af32
+  match dscp af31
+class-map match-any TRANSACTIONAL-DATA-QUEUE
+  match dscp af23
+  match dscp af22
+  match dscp af21
+class-map match-any BULK-DATA-QUEUE
+  match
+  dscp af13
+  match dscp af12
+  match dscp af11
+class-map match-any SCAVENGER-QUEUE
+  match
+  dscp cs1
+!
+policy-map 1P7Q1T
+  class PRIORITY-QUEUE
+    priority
+  class CONTROL-MGMT-QUEUE
+    bandwidth remaining percent 10
+  class MULTIMEDIA-CONFERENCING-QUEUE
+    bandwidth remaining percent 10
+  class MULTIMEDIA-STREAMING-QUEUE
+    bandwidth remaining percent 10
+  class TRANSACTIONAL-DATA-QUEUE
+    bandwidth remaining percent 10
+    dbl
+  class BULK-DATA-QUEUE
+    bandwidth remaining percent 4
+    dbl
+  class SCAVENGER-QUEUE
+    bandwidth remaining percent 1
+  class class-default
+    bandwidth remaining percent 25
+    dbl
+!
+macro name EgressQoS
+  service-policy output 1P7Q1T
+@

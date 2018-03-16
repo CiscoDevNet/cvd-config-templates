@@ -1,0 +1,8 @@
+- name: BUILD STACK AUTO UPGRADE CLI DATA
+  template:
+    src: stack_switch_auto_upgrade.j2
+    dest: "{{ configs_dir }}/{{ inventory_hostname }}/stack_switch_auto_upgrade.cfg"
+- name: PUSH CONFIG TO REMOTES
+  ios_config:
+    provider: "{{ provider }}"
+    src: "{{ configs_dir }}/{{ inventory_hostname }}/stack_switch_auto_upgrade.cfg"

@@ -1,0 +1,13 @@
+#jinja2: lstrip_blocks: "true"
+<config>
+  <native xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-native">
+      <vlan>
+      {% for id, vlan in vlan_data.items() %}
+        <vlan-list xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-vlan">
+          <id>{{ id }}</id>
+          <name>{{ vlan['vlan_desc'].replace(' ', '_')[:20] }}</name>
+        </vlan-list>
+      {% endfor %}
+      </vlan>
+  </native>
+</config>

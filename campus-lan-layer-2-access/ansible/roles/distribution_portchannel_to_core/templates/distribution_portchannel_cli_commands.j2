@@ -1,0 +1,6 @@
+#jinja2: lstrip_blocks: "true"
+{% for intf in uplinks %}
+interface {{ intf["interface"] }}
+ dampening
+ no shutdown
+{% endfor %}

@@ -1,0 +1,24 @@
+#jinja2: lstrip_blocks: "true"
+<config>
+  <native xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-native">
+    <router>
+      <ospf xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-ospf">
+        <id>{{ ospf["id"] }}</id>
+        <area>
+          <id>0</id>
+          <authentication>
+            <message-digest/>
+          </authentication>
+        </area>
+      {% for interface in uplinks %}
+        {#
+        <interface>
+          <name>{{ interface["interface"] }}</name>
+          </no-passive>
+        </interface>
+        #}
+      {% endfor %}
+      </ospf>
+    </router>
+  </native>
+</config>

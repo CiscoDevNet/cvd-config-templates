@@ -1,0 +1,20 @@
+---
+- name: ACCESS PROCEDURE 1
+  hosts: access
+  connection: local
+  gather_facts: no
+  vars:
+    switch_role: "access"
+  roles:
+    - name: stack_switch_priority
+      when: model | string in ['3850', '3650', '2960']
+    - name: stack_switch_mac_persist
+      when: "model | string == '2960'"
+    - load_balance_algorithm
+    - macro
+    - name: stack_switch_auto_upgrade
+      when: "model | string in ['3850', '3650']"
+    - name: stack_switch_power
+      when: "model | string == '3850'"
+    - name: switch_redundancy
+      when: "model == '4500'"

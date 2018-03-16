@@ -1,0 +1,11 @@
+<config>
+  <native xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-native">
+    <ip>
+      <arp>
+        <inspection>
+          <vlan>{{ data_vlan }}-{{ voice_vlan }}</vlan>
+        </inspection>
+      </arp>
+    </ip>
+  </native>
+</config>

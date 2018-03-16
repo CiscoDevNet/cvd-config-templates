@@ -1,0 +1,25 @@
+<config>
+  <native xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-native">
+    <ip>
+      <domain>
+        <name>{{ domain_name }}</name>
+      </domain>
+      <dhcp>
+        <excluded-address xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-dhcp">
+          <low-address>{{ dhcp_excl_low }}</low-address>
+          <high-address>{{ dhcp_excl_high }}</high-address>
+        </excluded-address>
+        <pool xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-dhcp">
+          <id>access</id>
+          <default-router>{{ dhcp_server_subnet|ipaddr('1')|ipaddr('address') }}</default-router>
+          <dns-server>{{ dns_server }}</dns-server>
+          <domain-name>{{ domain_name }}</domain-name>
+          <network>
+            <number>{{ dhcp_server_subnet|ipaddr('network') }}</number>
+            <mask>{{ dhcp_server_subnet|ipaddr('netmask') }}</mask>
+          </network>
+        </pool>
+      </dhcp>
+    </ip>
+  </native>
+</config>

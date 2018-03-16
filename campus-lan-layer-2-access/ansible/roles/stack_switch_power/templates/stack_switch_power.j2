@@ -1,0 +1,8 @@
+#jinja2: lstrip_blocks: "true"
+stack-power stack PowerStack-1
+ mode redundant
+{% for switch in stack_config %}
+stack-power switch {{ switch.switch_id }}
+  stack PowerStack-1
+{% endfor %}
+

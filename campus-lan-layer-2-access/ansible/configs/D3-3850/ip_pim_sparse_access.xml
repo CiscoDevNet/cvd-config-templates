@@ -1,0 +1,86 @@
+<config>
+  <native xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-native">
+    <interface>
+      <Port-channel>
+        <name>34</name>
+          <ip>
+            <pim>
+              <sparse-mode xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-multicast">sparse-mode</sparse-mode>
+            </pim>
+          </ip>
+      </Port-channel>
+      <Vlan>
+        <name>187</name>
+          <ip>
+            <pim>
+              <sparse-mode xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-multicast">sparse-mode</sparse-mode>
+            </pim>
+          </ip>
+      </Vlan>
+      <Vlan>
+        <name>195</name>
+          <ip>
+            <pim>
+              <sparse-mode xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-multicast">sparse-mode</sparse-mode>
+            </pim>
+          </ip>
+      </Vlan>
+      <Vlan>
+        <name>180</name>
+          <ip>
+            <pim>
+              <sparse-mode xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-multicast">sparse-mode</sparse-mode>
+            </pim>
+          </ip>
+      </Vlan>
+      <Vlan>
+        <name>181</name>
+          <ip>
+            <pim>
+              <sparse-mode xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-multicast">sparse-mode</sparse-mode>
+            </pim>
+          </ip>
+      </Vlan>
+      <Vlan>
+        <name>182</name>
+          <ip>
+            <pim>
+              <sparse-mode xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-multicast">sparse-mode</sparse-mode>
+            </pim>
+          </ip>
+      </Vlan>
+      <Vlan>
+        <name>184</name>
+          <ip>
+            <pim>
+              <sparse-mode xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-multicast">sparse-mode</sparse-mode>
+            </pim>
+          </ip>
+      </Vlan>
+      <Vlan>
+        <name>185</name>
+          <ip>
+            <pim>
+              <sparse-mode xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-multicast">sparse-mode</sparse-mode>
+            </pim>
+          </ip>
+      </Vlan>
+      <Vlan>
+        <name>186</name>
+          <ip>
+            <pim>
+              <sparse-mode xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-multicast">sparse-mode</sparse-mode>
+            </pim>
+          </ip>
+      </Vlan>
+      <Vlan>
+        <name>183</name>
+          <ip>
+            <pim>
+              <sparse-mode xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-multicast">sparse-mode</sparse-mode>
+            </pim>
+          </ip>
+      </Vlan>
+    </interface>
+  </native>
+</config>

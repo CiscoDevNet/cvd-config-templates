@@ -1,0 +1,60 @@
+#jinja2: lstrip_blocks: "true"
+<config>
+  <native xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-native">
+    <tacacs>
+      <server xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-aaa">
+        <name>{{ tacacs_server["name"] }}</name>
+        <address>
+          <ipv4>{{ tacacs_server["ipv4_addr"] }}</ipv4>
+        </address>
+        <key>
+          <encryption>0</encryption>
+          <key>{{ tacacs_server["tacacs_key"] }}</key>
+        </key>
+      </server>
+    </tacacs>
+    <aaa>
+      <new-model xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-aaa"/>
+      <group xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-aaa">
+        <server>
+          <tacacsplus>
+            <name>{{ tacacs_server_group_name }}</name>
+            <server>
+              <name>{{ tacacs_server["name"] }}</name>
+            </server>
+          </tacacsplus>
+        </server>
+      </group>
+      <authentication xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-aaa">
+        <login>
+          <name>default</name>
+          <a1>
+            <group>tacacs+</group>
+          </a1>
+          <a2>
+            <local/>
+          </a2>
+        </login>
+      </authentication>
+      <authorization xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-aaa">
+        <exec>
+          <name>default</name>
+          <a1>
+            <group>tacacs+</group>
+          </a1>
+          <a2>
+            <local/>
+          </a2>
+        </exec>
+        <console/>
+      </authorization>
+    </aaa>
+    <ip>
+      <http xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-http">
+        <authentication>
+          <aaa/>
+        </authentication>
+      </http>
+    </ip>
+  </native>
+</config>

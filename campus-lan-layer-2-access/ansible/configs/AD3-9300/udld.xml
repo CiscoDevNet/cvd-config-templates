@@ -1,0 +1,7 @@
+<config>
+  <native xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-native">
+    <udld>
+      <enable xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-udld"/>
+    </udld>
+  </native>
+</config>

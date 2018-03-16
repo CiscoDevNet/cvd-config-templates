@@ -1,0 +1,111 @@
+<config>
+  <native xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-native">
+    <interface>
+      <TenGigabitEthernet>
+        <name>1/1/7</name>
+        <description>Port-channel4 Member</description>
+        <switchport>
+          <mode xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch">
+            <trunk/>
+          </mode>
+          <trunk xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch">
+            <allowed>
+              <vlan>
+                <vlans>186,187,195</vlans>
+              </vlan>
+            </allowed>
+          </trunk>
+        </switchport>
+        <ip>
+          <arp>
+            <inspection>
+              <trust/>
+            </inspection>
+          </arp>
+          <dhcp>
+            <snooping xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-dhcp">
+              <trust/>
+            </snooping>
+          </dhcp>
+        </ip>
+        <load-interval>30</load-interval>
+        <logging>
+          <event>
+            <link-status/>
+            <trunk-status/>
+          </event>
+        </logging>
+      </TenGigabitEthernet>
+      <TenGigabitEthernet>
+        <name>1/1/8</name>
+        <description>Port-channel4 Member</description>
+        <switchport>
+          <mode xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch">
+            <trunk/>
+          </mode>
+          <trunk xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch">
+            <allowed>
+              <vlan>
+                <vlans>186,187,195</vlans>
+              </vlan>
+            </allowed>
+          </trunk>
+        </switchport>
+        <ip>
+          <arp>
+            <inspection>
+              <trust/>
+            </inspection>
+          </arp>
+          <dhcp>
+            <snooping xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-dhcp">
+              <trust/>
+            </snooping>
+          </dhcp>
+        </ip>
+        <load-interval>30</load-interval>
+        <logging>
+          <event>
+            <link-status/>
+            <trunk-status/>
+          </event>
+        </logging>
+      </TenGigabitEthernet>
+      <Port-channel>
+        <name>4</name>
+        <description>Link to Distribution Layer</description>
+        <switchport>
+          <mode xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch">
+            <trunk/>
+          </mode>
+          <trunk xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch">
+            <allowed>
+              <vlan>
+                <vlans>186,187,195</vlans>
+              </vlan>
+            </allowed>
+          </trunk>
+        </switchport>
+        <ip>
+          <arp>
+            <inspection>
+              <trust/>
+            </inspection>
+          </arp>
+          <dhcp>
+            <snooping xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-dhcp">
+              <trust/>
+            </snooping>
+          </dhcp>
+        </ip>
+        <load-interval>30</load-interval>
+        <logging>
+          <event>
+            <link-status/>
+            <trunk-status/>
+          </event>
+        </logging>
+      </Port-channel>
+    </interface>
+  </native>
+</config>

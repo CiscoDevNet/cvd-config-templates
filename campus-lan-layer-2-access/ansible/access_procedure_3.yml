@@ -1,0 +1,15 @@
+---
+- name: ACCESS PROCEUDRE 3
+  hosts: access
+  connection: local
+  gather_facts: no
+  vars:
+    switch_role: "access"
+  roles:
+    - vlans
+    - management_interface
+    - gateway
+    - dhcp_snoop_global
+    - arp_inspection
+    - bpdu_guard
+    - ra_guard

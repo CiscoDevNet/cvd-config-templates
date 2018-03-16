@@ -1,0 +1,21 @@
+---
+- name: DISTRIBUTION PROCEDURE 2
+  hosts: distribution
+  connection: local
+  gather_facts: no
+  vars:
+    switch_role: "distribution"
+  roles:
+    - hostname
+    - vtp
+    - stp
+    - stp_root
+    - udld
+    - errdisable
+    - dns
+    - mgmt_protocols
+    - snmp
+    - mgmt_acl
+    # - local_login
+    - tacacs
+    - ntp

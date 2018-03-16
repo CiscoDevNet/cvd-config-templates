@@ -1,0 +1,9 @@
+- name: BUILD STACK MAC PERSIST CLI DATA
+  template:
+    src: stack_switch_mac_persist.j2
+    dest: "{{ configs_dir }}/{{ inventory_hostname }}/stack_switch_mac_persist.cfg"
+
+- name: PUSH NETCONF TO REMOTES
+  ios_config:
+    provider: "{{ provider }}"
+    src: "{{ configs_dir }}/{{ inventory_hostname }}/stack_switch_mac_persist.cfg"

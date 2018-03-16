@@ -1,0 +1,43 @@
+#jinja2: lstrip_blocks: "true"
+<config>
+  <native xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-native">
+  {% for interface in port_channels|selectattr("type","equalto","routed_uplink")|list %}
+    <interface>
+      <Port-channel>
+        <name>{{ interface["id"] }}</name>
+        <description>Uplink to Core</description>
+        <switchport-conf>
+          <switchport>false</switchport>
+        </switchport-conf>
+        <ip>
+          <address>
+            <primary>
+              <address>{{ interface["ipv4_addr"] }}</address>
+              <mask>255.255.255.252</mask>
+            </primary>
+          </address>
+          <pim>
+            <sparse-mode xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-multicast">sparse-mode</sparse-mode>
+          </pim>
+        </ip>
+        {% if model | string in ["6500", "6800"] %}
+        <platform>
+          <multicast>
+            <forwarding>fast-redirect</forwarding>
+          </multicast>
+        </platform>
+        {% endif %}
+        <load-interval>30</load-interval>
+        <logging>
+          <event>
+            <link-status/>
+          </event>
+        </logging>
+        <carrier-delay xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-ethernet">
+          <msec>0</msec>
+        </carrier-delay>
+      </Port-channel>
+    </interface>
+  {% endfor %}
+  </native>
+</config>

@@ -1,0 +1,15 @@
+<config>
+  <native xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-native">
+    <router>
+      <ospf xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-ospf">
+        <id>100</id>
+        <area>
+          <id>0</id>
+          <authentication>
+            <message-digest/>
+          </authentication>
+        </area>
+      </ospf>
+    </router>
+  </native>
+</config>

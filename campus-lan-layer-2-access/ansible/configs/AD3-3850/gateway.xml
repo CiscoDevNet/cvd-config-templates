@@ -1,0 +1,7 @@
+<config>
+  <native xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-native">
+    <ip>
+      <default-gateway>10.4.95.1</default-gateway>
+    </ip>
+  </native>
+</config>

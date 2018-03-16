@@ -1,0 +1,26 @@
+- name: BUILD CORE UPLINK PORTCHANNEL MEMBER PORTS XML DATA
+  template:
+    src: distribution_portchannel_to_core.j2
+    dest: "{{ configs_dir }}/{{ inventory_hostname }}/distribution_portchannel_to_core.xml"
+
+- name: PUSH NETCONF TO REMOTES
+  netconf_config:
+    host: "{{ ansible_host }}"
+    username: "{{ ansible_user }}"
+    password: "{{ ansible_ssh_pass }}"
+    src: "{{ configs_dir }}/{{ inventory_hostname }}/distribution_portchannel_to_core.xml"
+
+- name: BUILD CORE UPLINK PORTCHANNEL MEMBERS CLI DATA
+  template:
+    src: distribution_portchannel_cli_commands.j2
+    dest: "{{ configs_dir }}/{{ inventory_hostname }}/distribution_portchannel_cli_commands.cfg"
+
+- name: PUSH CONFIG TO REMOTES
+  ios_config:
+    provider: "{{ provider }}"
+    src: "{{ configs_dir }}/{{ inventory_hostname }}/distribution_portchannel_cli_commands.cfg"
+
+- name: WAIT AN ARBITRARY PERIOD FOR CONFIG SYNC
+  pause:
+    prompt: "Wait for configuration synchronization."
+    seconds: 60

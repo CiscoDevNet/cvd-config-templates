@@ -1,0 +1,37 @@
+<config>
+  <native xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-native">
+    <key>
+      <chain xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-crypto">
+        <name>LAN</name>
+        <key>
+          <id>1</id>
+          <key-string>
+            <encryption>0</encryption>
+            <key>c1sco123</key>
+          </key-string>
+        </key>
+      </chain>
+    </key>
+    <router>
+      <eigrp xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-eigrp">
+        <id>LAN</id>
+        <address-family>
+          <type>ipv4</type>
+          <af-ip-list>
+            <unicast-multicast>unicast</unicast-multicast>
+            <autonomous-system>100</autonomous-system>
+            <af-interface>
+              <name>Port-channel34</name>
+              <authentication>
+                <mode>
+                  <md5/>
+                </mode>
+                <key-chain>EIGRP-KEY</key-chain>
+              </authentication>
+            </af-interface>
+          </af-ip-list>
+        </address-family>
+      </eigrp>
+    </router>
+  </native>
+</config>

@@ -1,0 +1,21 @@
+- name: BUILD EIGRP XML DATA
+  template:
+    src: eigrp.j2
+    dest: "{{ configs_dir }}/{{ inventory_hostname }}/eigrp.xml"
+
+- name: PUSH NETCONF TO REMOTES
+  netconf_config:
+    host: "{{ ansible_host }}"
+    username: "{{ ansible_user }}"
+    password: "{{ ansible_ssh_pass }}"
+    src: "{{ configs_dir }}/{{ inventory_hostname }}/eigrp.xml"
+
+# - name: BUILD EIGRP NSF CLI DATA
+#   template:
+#     src: nsf.j2
+#     dest: "{{ configs_dir }}/{{ inventory_hostname }}/eigrp_nsf.cfg"
+# 
+# - name: PUSH CONFIG TO REMOTES
+#   ios_config:
+#     provider: "{{ provider }}"
+#     src: "{{ configs_dir }}/{{ inventory_hostname }}/eigrp.cfg"

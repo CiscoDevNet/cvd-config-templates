@@ -1,0 +1,626 @@
+<config>
+  <native xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-native">
+    <interface>
+      <TenGigabitEthernet>
+        <name>1/0/1</name>
+        <description>Port-channel1 Member</description>
+        <switchport>
+          <mode xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch">
+            <trunk/>
+          </mode>
+          <trunk xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch">
+            <allowed>
+              <vlan>
+                <vlans>195,180,181</vlans>
+              </vlan>
+            </allowed>
+            <native>
+              <vlan>999</vlan>
+            </native>
+          </trunk>
+        </switchport>
+        <load-interval>30</load-interval>
+        <logging>
+          <event>
+            <link-status/>
+            <trunk-status/>
+            <bundle-status/>
+          </event>
+        </logging>
+        <channel-group xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-ethernet">
+          <number>1</number>
+          <mode>active</mode>
+        </channel-group>
+        <channel-protocol xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-ethernet">lacp</channel-protocol>
+      </TenGigabitEthernet>
+      <TenGigabitEthernet>
+        <name>1/0/2</name>
+        <description>Port-channel1 Member</description>
+        <switchport>
+          <mode xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch">
+            <trunk/>
+          </mode>
+          <trunk xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch">
+            <allowed>
+              <vlan>
+                <vlans>195,180,181</vlans>
+              </vlan>
+            </allowed>
+            <native>
+              <vlan>999</vlan>
+            </native>
+          </trunk>
+        </switchport>
+        <load-interval>30</load-interval>
+        <logging>
+          <event>
+            <link-status/>
+            <trunk-status/>
+            <bundle-status/>
+          </event>
+        </logging>
+        <channel-group xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-ethernet">
+          <number>1</number>
+          <mode>active</mode>
+        </channel-group>
+        <channel-protocol xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-ethernet">lacp</channel-protocol>
+      </TenGigabitEthernet>
+      <TenGigabitEthernet>
+        <name>2/0/1</name>
+        <description>Port-channel1 Member</description>
+        <switchport>
+          <mode xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch">
+            <trunk/>
+          </mode>
+          <trunk xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch">
+            <allowed>
+              <vlan>
+                <vlans>195,180,181</vlans>
+              </vlan>
+            </allowed>
+            <native>
+              <vlan>999</vlan>
+            </native>
+          </trunk>
+        </switchport>
+        <load-interval>30</load-interval>
+        <logging>
+          <event>
+            <link-status/>
+            <trunk-status/>
+            <bundle-status/>
+          </event>
+        </logging>
+        <channel-group xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-ethernet">
+          <number>1</number>
+          <mode>active</mode>
+        </channel-group>
+        <channel-protocol xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-ethernet">lacp</channel-protocol>
+      </TenGigabitEthernet>
+      <TenGigabitEthernet>
+        <name>2/0/2</name>
+        <description>Port-channel1 Member</description>
+        <switchport>
+          <mode xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch">
+            <trunk/>
+          </mode>
+          <trunk xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch">
+            <allowed>
+              <vlan>
+                <vlans>195,180,181</vlans>
+              </vlan>
+            </allowed>
+            <native>
+              <vlan>999</vlan>
+            </native>
+          </trunk>
+        </switchport>
+        <load-interval>30</load-interval>
+        <logging>
+          <event>
+            <link-status/>
+            <trunk-status/>
+            <bundle-status/>
+          </event>
+        </logging>
+        <channel-group xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-ethernet">
+          <number>1</number>
+          <mode>active</mode>
+        </channel-group>
+        <channel-protocol xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-ethernet">lacp</channel-protocol>
+      </TenGigabitEthernet>
+      <TenGigabitEthernet>
+        <name>1/0/3</name>
+        <description>Port-channel2 Member</description>
+        <switchport>
+          <mode xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch">
+            <trunk/>
+          </mode>
+          <trunk xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch">
+            <allowed>
+              <vlan>
+                <vlans>195,182,183</vlans>
+              </vlan>
+            </allowed>
+            <native>
+              <vlan>999</vlan>
+            </native>
+          </trunk>
+        </switchport>
+        <load-interval>30</load-interval>
+        <logging>
+          <event>
+            <link-status/>
+            <trunk-status/>
+            <bundle-status/>
+          </event>
+        </logging>
+        <channel-group xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-ethernet">
+          <number>2</number>
+          <mode>active</mode>
+        </channel-group>
+        <channel-protocol xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-ethernet">lacp</channel-protocol>
+      </TenGigabitEthernet>
+      <TenGigabitEthernet>
+        <name>1/0/4</name>
+        <description>Port-channel2 Member</description>
+        <switchport>
+          <mode xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch">
+            <trunk/>
+          </mode>
+          <trunk xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch">
+            <allowed>
+              <vlan>
+                <vlans>195,182,183</vlans>
+              </vlan>
+            </allowed>
+            <native>
+              <vlan>999</vlan>
+            </native>
+          </trunk>
+        </switchport>
+        <load-interval>30</load-interval>
+        <logging>
+          <event>
+            <link-status/>
+            <trunk-status/>
+            <bundle-status/>
+          </event>
+        </logging>
+        <channel-group xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-ethernet">
+          <number>2</number>
+          <mode>active</mode>
+        </channel-group>
+        <channel-protocol xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-ethernet">lacp</channel-protocol>
+      </TenGigabitEthernet>
+      <TenGigabitEthernet>
+        <name>2/0/3</name>
+        <description>Port-channel2 Member</description>
+        <switchport>
+          <mode xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch">
+            <trunk/>
+          </mode>
+          <trunk xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch">
+            <allowed>
+              <vlan>
+                <vlans>195,182,183</vlans>
+              </vlan>
+            </allowed>
+            <native>
+              <vlan>999</vlan>
+            </native>
+          </trunk>
+        </switchport>
+        <load-interval>30</load-interval>
+        <logging>
+          <event>
+            <link-status/>
+            <trunk-status/>
+            <bundle-status/>
+          </event>
+        </logging>
+        <channel-group xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-ethernet">
+          <number>2</number>
+          <mode>active</mode>
+        </channel-group>
+        <channel-protocol xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-ethernet">lacp</channel-protocol>
+      </TenGigabitEthernet>
+      <TenGigabitEthernet>
+        <name>2/0/4</name>
+        <description>Port-channel2 Member</description>
+        <switchport>
+          <mode xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch">
+            <trunk/>
+          </mode>
+          <trunk xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch">
+            <allowed>
+              <vlan>
+                <vlans>195,182,183</vlans>
+              </vlan>
+            </allowed>
+            <native>
+              <vlan>999</vlan>
+            </native>
+          </trunk>
+        </switchport>
+        <load-interval>30</load-interval>
+        <logging>
+          <event>
+            <link-status/>
+            <trunk-status/>
+            <bundle-status/>
+          </event>
+        </logging>
+        <channel-group xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-ethernet">
+          <number>2</number>
+          <mode>active</mode>
+        </channel-group>
+        <channel-protocol xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-ethernet">lacp</channel-protocol>
+      </TenGigabitEthernet>
+      <TenGigabitEthernet>
+        <name>1/0/5</name>
+        <description>Port-channel3 Member</description>
+        <switchport>
+          <mode xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch">
+            <trunk/>
+          </mode>
+          <trunk xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch">
+            <allowed>
+              <vlan>
+                <vlans>195,184,185</vlans>
+              </vlan>
+            </allowed>
+            <native>
+              <vlan>999</vlan>
+            </native>
+          </trunk>
+        </switchport>
+        <load-interval>30</load-interval>
+        <logging>
+          <event>
+            <link-status/>
+            <trunk-status/>
+            <bundle-status/>
+          </event>
+        </logging>
+        <channel-group xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-ethernet">
+          <number>3</number>
+          <mode>active</mode>
+        </channel-group>
+        <channel-protocol xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-ethernet">lacp</channel-protocol>
+      </TenGigabitEthernet>
+      <TenGigabitEthernet>
+        <name>1/0/6</name>
+        <description>Port-channel3 Member</description>
+        <switchport>
+          <mode xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch">
+            <trunk/>
+          </mode>
+          <trunk xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch">
+            <allowed>
+              <vlan>
+                <vlans>195,184,185</vlans>
+              </vlan>
+            </allowed>
+            <native>
+              <vlan>999</vlan>
+            </native>
+          </trunk>
+        </switchport>
+        <load-interval>30</load-interval>
+        <logging>
+          <event>
+            <link-status/>
+            <trunk-status/>
+            <bundle-status/>
+          </event>
+        </logging>
+        <channel-group xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-ethernet">
+          <number>3</number>
+          <mode>active</mode>
+        </channel-group>
+        <channel-protocol xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-ethernet">lacp</channel-protocol>
+      </TenGigabitEthernet>
+      <TenGigabitEthernet>
+        <name>2/0/5</name>
+        <description>Port-channel3 Member</description>
+        <switchport>
+          <mode xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch">
+            <trunk/>
+          </mode>
+          <trunk xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch">
+            <allowed>
+              <vlan>
+                <vlans>195,184,185</vlans>
+              </vlan>
+            </allowed>
+            <native>
+              <vlan>999</vlan>
+            </native>
+          </trunk>
+        </switchport>
+        <load-interval>30</load-interval>
+        <logging>
+          <event>
+            <link-status/>
+            <trunk-status/>
+            <bundle-status/>
+          </event>
+        </logging>
+        <channel-group xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-ethernet">
+          <number>3</number>
+          <mode>active</mode>
+        </channel-group>
+        <channel-protocol xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-ethernet">lacp</channel-protocol>
+      </TenGigabitEthernet>
+      <TenGigabitEthernet>
+        <name>2/0/6</name>
+        <description>Port-channel3 Member</description>
+        <switchport>
+          <mode xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch">
+            <trunk/>
+          </mode>
+          <trunk xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch">
+            <allowed>
+              <vlan>
+                <vlans>195,184,185</vlans>
+              </vlan>
+            </allowed>
+            <native>
+              <vlan>999</vlan>
+            </native>
+          </trunk>
+        </switchport>
+        <load-interval>30</load-interval>
+        <logging>
+          <event>
+            <link-status/>
+            <trunk-status/>
+            <bundle-status/>
+          </event>
+        </logging>
+        <channel-group xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-ethernet">
+          <number>3</number>
+          <mode>active</mode>
+        </channel-group>
+        <channel-protocol xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-ethernet">lacp</channel-protocol>
+      </TenGigabitEthernet>
+      <TenGigabitEthernet>
+        <name>1/0/7</name>
+        <description>Port-channel4 Member</description>
+        <switchport>
+          <mode xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch">
+            <trunk/>
+          </mode>
+          <trunk xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch">
+            <allowed>
+              <vlan>
+                <vlans>195,186,187</vlans>
+              </vlan>
+            </allowed>
+            <native>
+              <vlan>999</vlan>
+            </native>
+          </trunk>
+        </switchport>
+        <load-interval>30</load-interval>
+        <logging>
+          <event>
+            <link-status/>
+            <trunk-status/>
+            <bundle-status/>
+          </event>
+        </logging>
+        <channel-group xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-ethernet">
+          <number>4</number>
+          <mode>active</mode>
+        </channel-group>
+        <channel-protocol xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-ethernet">lacp</channel-protocol>
+      </TenGigabitEthernet>
+      <TenGigabitEthernet>
+        <name>1/0/8</name>
+        <description>Port-channel4 Member</description>
+        <switchport>
+          <mode xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch">
+            <trunk/>
+          </mode>
+          <trunk xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch">
+            <allowed>
+              <vlan>
+                <vlans>195,186,187</vlans>
+              </vlan>
+            </allowed>
+            <native>
+              <vlan>999</vlan>
+            </native>
+          </trunk>
+        </switchport>
+        <load-interval>30</load-interval>
+        <logging>
+          <event>
+            <link-status/>
+            <trunk-status/>
+            <bundle-status/>
+          </event>
+        </logging>
+        <channel-group xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-ethernet">
+          <number>4</number>
+          <mode>active</mode>
+        </channel-group>
+        <channel-protocol xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-ethernet">lacp</channel-protocol>
+      </TenGigabitEthernet>
+      <TenGigabitEthernet>
+        <name>2/0/7</name>
+        <description>Port-channel4 Member</description>
+        <switchport>
+          <mode xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch">
+            <trunk/>
+          </mode>
+          <trunk xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch">
+            <allowed>
+              <vlan>
+                <vlans>195,186,187</vlans>
+              </vlan>
+            </allowed>
+            <native>
+              <vlan>999</vlan>
+            </native>
+          </trunk>
+        </switchport>
+        <load-interval>30</load-interval>
+        <logging>
+          <event>
+            <link-status/>
+            <trunk-status/>
+            <bundle-status/>
+          </event>
+        </logging>
+        <channel-group xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-ethernet">
+          <number>4</number>
+          <mode>active</mode>
+        </channel-group>
+        <channel-protocol xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-ethernet">lacp</channel-protocol>
+      </TenGigabitEthernet>
+      <TenGigabitEthernet>
+        <name>2/0/8</name>
+        <description>Port-channel4 Member</description>
+        <switchport>
+          <mode xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch">
+            <trunk/>
+          </mode>
+          <trunk xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch">
+            <allowed>
+              <vlan>
+                <vlans>195,186,187</vlans>
+              </vlan>
+            </allowed>
+            <native>
+              <vlan>999</vlan>
+            </native>
+          </trunk>
+        </switchport>
+        <load-interval>30</load-interval>
+        <logging>
+          <event>
+            <link-status/>
+            <trunk-status/>
+            <bundle-status/>
+          </event>
+        </logging>
+        <channel-group xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-ethernet">
+          <number>4</number>
+          <mode>active</mode>
+        </channel-group>
+        <channel-protocol xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-ethernet">lacp</channel-protocol>
+      </TenGigabitEthernet>
+      <Port-channel>
+        <name>1</name>
+        <description>Etherchannel Link to AD3-4507-1</description>
+        <switchport>
+          <mode xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch">
+            <trunk/>
+          </mode>
+          <trunk xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch">
+            <allowed>
+              <vlan>
+                <vlans>195,180,181</vlans>
+              </vlan>
+            </allowed>
+            <native>
+              <vlan>999</vlan>
+            </native>
+          </trunk>
+        </switchport>
+        <load-interval>30</load-interval>
+        <logging>
+          <event>
+            <link-status/>
+            <trunk-status/>
+            <bundle-status/>
+          </event>
+        </logging>
+      </Port-channel>
+      <Port-channel>
+        <name>2</name>
+        <description>Etherchannel Link to AD3-3850</description>
+        <switchport>
+          <mode xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch">
+            <trunk/>
+          </mode>
+          <trunk xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch">
+            <allowed>
+              <vlan>
+                <vlans>195,182,183</vlans>
+              </vlan>
+            </allowed>
+            <native>
+              <vlan>999</vlan>
+            </native>
+          </trunk>
+        </switchport>
+        <load-interval>30</load-interval>
+        <logging>
+          <event>
+            <link-status/>
+            <trunk-status/>
+            <bundle-status/>
+          </event>
+        </logging>
+      </Port-channel>
+      <Port-channel>
+        <name>3</name>
+        <description>Etherchannel Link to AD3-3650</description>
+        <switchport>
+          <mode xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch">
+            <trunk/>
+          </mode>
+          <trunk xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch">
+            <allowed>
+              <vlan>
+                <vlans>195,184,185</vlans>
+              </vlan>
+            </allowed>
+            <native>
+              <vlan>999</vlan>
+            </native>
+          </trunk>
+        </switchport>
+        <load-interval>30</load-interval>
+        <logging>
+          <event>
+            <link-status/>
+            <trunk-status/>
+            <bundle-status/>
+          </event>
+        </logging>
+      </Port-channel>
+      <Port-channel>
+        <name>4</name>
+        <description>Etherchannel Link to AD3-9300</description>
+        <switchport>
+          <mode xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch">
+            <trunk/>
+          </mode>
+          <trunk xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch">
+            <allowed>
+              <vlan>
+                <vlans>195,186,187</vlans>
+              </vlan>
+            </allowed>
+            <native>
+              <vlan>999</vlan>
+            </native>
+          </trunk>
+        </switchport>
+        <load-interval>30</load-interval>
+        <logging>
+          <event>
+            <link-status/>
+            <trunk-status/>
+            <bundle-status/>
+          </event>
+        </logging>
+      </Port-channel>
+    </interface>
+  </native>
+</config>

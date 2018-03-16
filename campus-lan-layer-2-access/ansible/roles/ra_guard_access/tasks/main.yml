@@ -1,0 +1,6 @@
+- name: PUSH NETCONF TO REMOTES
+  netconf_config:
+    host: "{{ ansible_host }}"
+    username: "{{ ansible_user }}"
+    password: "{{ ansible_ssh_pass }}"
+    src: "{{ configs_dir }}/{{ inventory_hostname }}/ra_guard_access.xml"

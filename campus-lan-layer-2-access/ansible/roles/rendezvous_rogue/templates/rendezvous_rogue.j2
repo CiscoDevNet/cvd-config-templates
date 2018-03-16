@@ -1,0 +1,41 @@
+#jinja2: lstrip_blocks: "true"
+<config>
+  <native xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-native">
+    <ip>
+      <access-list>
+        <extended xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-acl">
+          <name>MCAST-SOURCES</name>
+        {% set seq = [0] %}
+        {% for network in rendezvous_networks %}
+          {% set _ = seq.append(seq[-1] + 10) %}
+          <access-list-seq-rule>
+            <sequence>{{ seq[-1] }}</sequence>
+            <ace-rule>
+              <action>permit</action>
+              <protocol>ip</protocol>
+              <ipv4-address>{{ network | ipaddr("network") }}</ipv4-address>
+              <mask>{{ network | ipaddr("wildcard") }}</mask>
+              <dest-ipv4-address>{{ multicast_network | ipaddr("network") }}</dest-ipv4-address>
+              <dest-mask>{{ multicast_network | ipaddr("wildcard") }}</dest-mask>
+            </ace-rule>
+          </access-list-seq-rule>
+        {% endfor %}
+          <access-list-seq-rule>
+            <sequence>{{ seq[-1] + 10}}</sequence>
+            <ace-rule>
+              <action>deny</action>
+              <protocol>ip</protocol>
+              <any/>
+              <dst-any/>
+            </ace-rule>
+          </access-list-seq-rule>
+        </extended>
+      </access-list>
+      <pim>
+        <accept-register xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-multicast">
+          <list>MCAST-SOURCES</list>
+        </accept-register>
+      </pim>
+    </ip>
+  </native>
+</config>

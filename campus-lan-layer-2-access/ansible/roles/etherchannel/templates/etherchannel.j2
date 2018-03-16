@@ -1,0 +1,69 @@
+#jinja2: lstrip_blocks: "true"
+<config>
+  <native xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-native">
+    <interface>
+{% if etherchannel_protocol != 'force' %}
+  {% set portchannel_ids = [] %}
+  {% for interface in uplinks %}
+    {% if interface["interface"].startswith("Port-channel") %}
+      {% set _ = portchannel_ids.append(interface["interface"].lstrip("Port-channel")) %}
+    {% endif %}
+  {% endfor %}
+  {% for id in portchannel_ids %}
+    {% for interface in port_channels[id | int]["interfaces"] %}
+      {% set interface_type = interface.split("Ethernet") %}
+      <{{ interface_type[0] ~ "Ethernet" }}>
+        <name>{{ interface_type[1] }}</name>
+        <description>{{ "Port-channel" ~ id ~ " Member" }}</description>
+        <load-interval>30</load-interval>
+        <logging>
+          <event>
+            <bundle-status/>
+            <link-status/>
+          </event>
+        </logging>
+        <channel-group xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-ethernet">
+          <number>{{ id }}</number>
+          {% if etherchannel_protocol == 'lacp' %}
+          <mode>active</mode>
+          {% elif etherchannel_protocol == 'pagp' %}
+          <mode>desirable</mode>
+          {% endif %}
+        </channel-group>
+        <channel-protocol xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-ethernet">{{ etherchannel_protocol }}</channel-protocol>
+      </{{ interface_type[0] ~ "Ethernet" }}>
+    {% endfor %}
+  {% endfor %}
+{% else %}
+  {% set portchannel_ids = [] %}
+  {% for interface in uplinks %}
+    {% if interface["interface"].startswith("Port-channel") %}
+      {% set _ = portchannel_ids.append(interface["interface"].lstrip("Port-channel")) %}
+    {% endif %}
+  {% endfor %}
+  {% for id in portchannel_ids %}
+    {% for interface in port_channels[id | int]["interfaces"] %}
+      {% set interface_type = interface.split("Ethernet") %}
+      <{{ interface_type[0] ~ "Ethernet" }}>
+        <name>{{ interface_type[1] }}</name>
+        <description>{{ "Port-channel" ~ id ~ " Member" }}</description>
+        <load-interval>30</load-interval>
+        <logging>
+          <event>
+            <bundle-status/>
+            <link-status/>
+          </event>
+        </logging>
+        <channel-group xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-ethernet">
+          <number>{{ id }}</number>
+          <mode>on</mode>
+        </channel-group>
+        <channel-protocol xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-ethernet">{{ etherchannel_protocol }}</channel-protocol>
+      </{{ interface_type[0] ~ "Ethernet" }}>
+    {% endfor %}
+  {% endfor %}
+{% endif %}
+    </interface>
+  </native>
+</config>
+

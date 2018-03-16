@@ -1,0 +1,21 @@
+<config>
+  <native xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-native">
+{% if model|string not in ['4500', '6500'] %}
+    <ip>
+      <default-gateway>{{ management_subnet|ipaddr('1')|ipaddr('address') }}</default-gateway>
+    </ip>
+{% else %}
+    <ip>
+      <route>
+        <ip-route-interface-forwarding-list>
+          <prefix>{{ management_subnet|ipaddr('network') }}</prefix>
+          <mask>{{ management_subnet|ipaddr('netmask') }}</mask>
+          <fwd-list>
+            <fwd>{{ management_subnet|ipaddr('1')|ipaddr('address') }}</fwd>
+          </fwd-list>
+        </ip-route-interface-forwarding-list>
+      </route>
+    </ip>
+{% endif %}
+  </native>
+</config>

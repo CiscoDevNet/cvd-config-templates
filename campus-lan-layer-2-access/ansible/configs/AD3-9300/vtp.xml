@@ -1,0 +1,9 @@
+<config>
+  <native xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-native">
+    <vtp>
+      <mode xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-vtp">
+        <transparent/>
+      </mode>
+    </vtp>
+  </native>
+</config>

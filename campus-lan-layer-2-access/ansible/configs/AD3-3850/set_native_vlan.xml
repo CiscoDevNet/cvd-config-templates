@@ -1,0 +1,69 @@
+<config>
+  <native xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-native">
+    <interface>
+      <Port-channel>
+        <name>2</name>
+          <switchport>
+            <trunk xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch">
+              <native>
+                <vlan>999</vlan>
+              </native>
+            </trunk>
+          </switchport>
+        <description>Port-channel2</description>
+      </Port-channel>
+    </interface>
+    <interface>
+      <TenGigabitEthernet>
+        <name>1/1/1</name>
+          <switchport>
+            <trunk xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch">
+              <native>
+                <vlan>999</vlan>
+              </native>
+            </trunk>
+          </switchport>
+        <description>Port-channel2 Member</description>
+      </TenGigabitEthernet>
+    </interface>
+    <interface>
+      <TenGigabitEthernet>
+        <name>1/1/2</name>
+          <switchport>
+            <trunk xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch">
+              <native>
+                <vlan>999</vlan>
+              </native>
+            </trunk>
+          </switchport>
+        <description>Port-channel2 Member</description>
+      </TenGigabitEthernet>
+    </interface>
+    <interface>
+      <TenGigabitEthernet>
+        <name>3/1/1</name>
+          <switchport>
+            <trunk xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch">
+              <native>
+                <vlan>999</vlan>
+              </native>
+            </trunk>
+          </switchport>
+        <description>Port-channel2 Member</description>
+      </TenGigabitEthernet>
+    </interface>
+    <interface>
+      <TenGigabitEthernet>
+        <name>3/1/2</name>
+          <switchport>
+            <trunk xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch">
+              <native>
+                <vlan>999</vlan>
+              </native>
+            </trunk>
+          </switchport>
+        <description>Port-channel2 Member</description>
+      </TenGigabitEthernet>
+    </interface>
+  </native>
+</config>

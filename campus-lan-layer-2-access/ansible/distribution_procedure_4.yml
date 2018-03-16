@@ -1,0 +1,15 @@
+---
+- name: DISTRIBUTION PROCEDURE 4
+  hosts: distribution
+  connection: local
+  gather_facts: no
+  vars:
+    switch_role: "distribution"
+  roles:
+    - distribution_l2vlans
+    - ip_routing
+    - name: eigrp
+      when: routing_protocol == 'eigrp'
+    - name: ospf
+      when: routing_protocol == 'ospf'
+    - purge_route

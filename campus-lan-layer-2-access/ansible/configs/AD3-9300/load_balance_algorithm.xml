@@ -1,0 +1,8 @@
+<config>
+  <native xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-native">
+    <port-channel>
+      <load-balance xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-ethernet">
+      </load-balance>
+    </port-channel>
+  </native>
+</config>

@@ -1,0 +1,11 @@
+---
+- name: DISTRIBUTION PROCEDURE 5
+  hosts: distribution
+  connection: local
+  gather_facts: no
+  vars:
+    switch_role: "distribution"
+  roles:
+    - ip_mroute_global
+    - ip_mroute_disc_rp
+    - ip_pim_sparse_access

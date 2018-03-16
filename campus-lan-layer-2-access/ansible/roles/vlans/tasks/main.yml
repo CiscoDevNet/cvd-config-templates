@@ -1,0 +1,10 @@
+- name: BUILD VLAN XML DATA
+  template:
+    src: "vlans.j2"
+    dest: "{{ configs_dir }}/{{ inventory_hostname }}/vlans.xml"
+- name: PUSH NETCONF TO REMOTES
+  netconf_config:
+    host: "{{ ansible_host }}"
+    username: "{{ ansible_user }}"
+    password: "{{ ansible_ssh_pass }}"
+    src: "{{ configs_dir }}/{{ inventory_hostname }}/vlans.xml"

@@ -1,0 +1,31 @@
+#jinja2: lstrip_blocks: "true"
+<config>
+  <native xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-native">
+    <interface>
+    {% for port_channel in port_channels %}
+      {% if port_channel['type'] == 'routed_uplink' %}
+      <Port-channel>
+        <name>{{ port_channel["id"] }}</name>
+          <ip>
+            <pim>
+              <sparse-mode xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-multicast">sparse-mode</sparse-mode>
+            </pim>
+          </ip>
+      </Port-channel>
+      {% endif %}
+    {% endfor %}
+    {% for id, vlan in vlan_data.items() %}
+     {% if vlan['ipv4_network'] is defined %}
+      <Vlan>
+        <name>{{ id }}</name>
+          <ip>
+            <pim>
+              <sparse-mode xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-multicast">sparse-mode</sparse-mode>
+            </pim>
+          </ip>
+      </Vlan>
+      {% endif %}
+    {% endfor %}
+    </interface>
+  </native>
+</config>

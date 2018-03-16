@@ -1,0 +1,47 @@
+- name: "PUSH CONFIG TO REMOTES ['3850','9300','3650']"
+  ios_config:
+    save_when: modified
+    provider: "{{ provider }}"
+    lines:
+      - "macro name AccessEdgeQoS\r trust device cisco-phone\r service-policy input CISCO-PHONE\r service-policy output 2P6Q3T\r@\rmacro name EgressQoS\r service-policy output 2P6Q3T\r@\r"
+  when: model|string in ['3850','9300','3650']
+
+- name: "PUSH CONFIG TO REMOTES ['2960']"
+  ios_config:
+    save_when: modified
+    provider: "{{ provider }}"
+    lines:
+      - "EgressQoS\r mls qos trust dscp\n queue-set 1\r srr-queue bandwidth share 1 30 35 5\r priority-queue out\r@\r"
+  when: model|string in ['2960']
+
+- name: "PUSH CONFIG TO REMOTES ['4500']"
+  ios_config:
+    save_when: modified
+    provider: "{{ provider }}"
+    lines:
+      - "macro name AccessEdgeQoS\r auto qos voip cisco-phone\r@\rmacro name EgressQoS\r service-policy output 1P7Q1T\r@\r"
+  when: model|string in ['4500']
+
+- name: WAIT AN ARBITRARY PERIOD FOR CONFIG SYNC
+  pause:
+    prompt: "Wait for configuration synchronization."
+    seconds: 60
+
+- name: BUILD MACROS CONFIG XML DATA
+  template:
+    src: "{{ model }}_{{ switch_role }}_data.j2"
+    dest: "{{ configs_dir }}/{{ inventory_hostname }}/macro_data.xml"
+  when: "model | string != '2960'"
+
+- name: PUSH NETCONF TO REMOTES
+  netconf_config:
+    host: "{{ ansible_host }}"
+    username: "{{ ansible_user }}"
+    password: "{{ ansible_ssh_pass }}"
+    src: "{{ configs_dir }}/{{ inventory_hostname }}/macro_data.xml"
+  when: "model | string != '2960'"
+
+- name: WAIT AN ARBITRARY PERIOD FOR CONFIG SYNC
+  pause:
+    prompt: "Wait for configuration synchronization."
+    seconds: 60

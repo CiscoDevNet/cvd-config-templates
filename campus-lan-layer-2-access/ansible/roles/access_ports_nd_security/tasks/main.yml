@@ -1,0 +1,10 @@
+- name: BUILD ACCESS PORTS IPV6 ND SECURITY XML DATA
+  template:
+    src: access_ports_nd_security.j2
+    dest: "{{ configs_dir }}/{{ inventory_hostname }}/access_ports_nd_security.xml"
+- name: PUSH NETCONF TO REMOTES
+  netconf_config:
+    host: "{{ ansible_host }}"
+    username: "{{ ansible_user }}"
+    password: "{{ ansible_ssh_pass }}"
+    src: "{{ configs_dir }}/{{ inventory_hostname }}/access_ports_nd_security.xml"

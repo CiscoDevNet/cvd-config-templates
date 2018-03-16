@@ -1,0 +1,11 @@
+<config>
+  <native xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-native">
+    <errdisable>
+      <recovery>
+        <cause>
+          <all/>
+        </cause>
+      </recovery>
+    </errdisable>
+  </native>
+</config>

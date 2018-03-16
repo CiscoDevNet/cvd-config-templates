@@ -1,0 +1,16 @@
+- name: BUILD ETHERCHANNEL XML DATA
+  template:
+    src: etherchannel.j2
+    dest: "{{ configs_dir }}/{{ inventory_hostname }}/etherchannel.xml"
+
+- name: PUSH NETCONF TO REMOTES
+  netconf_config:
+    host: "{{ ansible_host }}"
+    username: "{{ ansible_user }}"
+    password: "{{ ansible_ssh_pass }}"
+    src: "{{ configs_dir }}/{{ inventory_hostname }}/etherchannel.xml"
+
+- name: WAIT AN ARBITRARY PERIOD FOR CONFIG SYNC
+  pause:
+    prompt: "Wait for configuration synchronization."
+    seconds: 60

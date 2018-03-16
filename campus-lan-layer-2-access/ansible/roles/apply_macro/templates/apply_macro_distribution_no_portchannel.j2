@@ -1,0 +1,5 @@
+#jinja2: lstrip_blocks: "true"
+{% for intf in uplinks %}
+interface {{ intf["interface"] }}
+ macro apply {{ desired_macro }}
+  {% endfor %}

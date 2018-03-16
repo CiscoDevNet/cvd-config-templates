@@ -1,0 +1,25 @@
+---
+# OPTION 2 - Configure Cisco Catalyst 6807-XL, 6500-E, or 6880-X Virtual Switching System
+- name: STEP 1 - SET ETHERCHANNELS TO USE THE TRAFFIC SOURCE AND DESTINATION IP ADDRESS
+  ios_config:
+    lines:
+      - "port-channel load-balance vlan-src-dst-mixed-ip-port"
+      
+- name: STEP 2 - CONFIGURE BASE QOS POLICY
+  template:
+    src: 6Kqos_base.j2
+    dest: "{{ configs_dir }}/{{ inventory_hostname }}/vss_6Kqos_base.cfg"
+
+- name: PUSH CONFIG TO REMOTES
+  ios_config:
+    save_when: modified
+    provider: "{{ provider }}"
+    src: "{{ configs_dir }}/{{ inventory_hostname }}/vss_6Kqos_base.cfg"
+
+# - name: STEP 3 - ENABLE CONNECTIVITY BETWEEN SWITCH PAIRS
+#   template:
+#     src: Sup2Tqos.j2
+#     dest: "{{ configs_dir }}/{{ inventory_hostname }}/vss_qos.cfg"
+#   # when: If you are using Gigabit Ethernet cards supported in VSS mode on Cisco Catalyst 6500-XLand 6807-E
+#   #       Supervisor Engine 2T based switches, configure an additional QoS policy for the Gigabit Ethernet ports.
+

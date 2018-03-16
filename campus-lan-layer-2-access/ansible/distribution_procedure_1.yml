@@ -1,0 +1,9 @@
+---
+- name: DISTRIBUTION PROCEDURE 1
+  hosts: distribution
+  connection: local
+  gather_facts: no
+  vars:
+    switch_role: "distribution"
+  roles:
+    - role: vss

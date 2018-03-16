@@ -1,0 +1,47 @@
+<config>
+  <native xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-native">
+    <ip>
+      <access-list>
+        <extended xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-acl">
+          <name>MCAST-SOURCES</name>
+          <access-list-seq-rule>
+            <sequence>10</sequence>
+            <ace-rule>
+              <action>permit</action>
+              <protocol>ip</protocol>
+              <ipv4-address>10.4.40.0</ipv4-address>
+              <mask>0.0.0.255</mask>
+              <dest-ipv4-address>239.1.0.0</dest-ipv4-address>
+              <dest-mask>0.0.255.255</dest-mask>
+            </ace-rule>
+          </access-list-seq-rule>
+          <access-list-seq-rule>
+            <sequence>20</sequence>
+            <ace-rule>
+              <action>permit</action>
+              <protocol>ip</protocol>
+              <ipv4-address>10.4.48.0</ipv4-address>
+              <mask>0.0.0.255</mask>
+              <dest-ipv4-address>239.1.0.0</dest-ipv4-address>
+              <dest-mask>0.0.255.255</dest-mask>
+            </ace-rule>
+          </access-list-seq-rule>
+          <access-list-seq-rule>
+            <sequence>30</sequence>
+            <ace-rule>
+              <action>deny</action>
+              <protocol>ip</protocol>
+              <any/>
+              <dst-any/>
+            </ace-rule>
+          </access-list-seq-rule>
+        </extended>
+      </access-list>
+      <pim>
+        <accept-register xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-multicast">
+          <list>MCAST-SOURCES</list>
+        </accept-register>
+      </pim>
+    </ip>
+  </native>
+</config>

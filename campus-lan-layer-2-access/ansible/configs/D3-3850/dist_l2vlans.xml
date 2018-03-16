@@ -1,0 +1,46 @@
+<config>
+  <native xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-native">
+      <vlan>
+        <vlan-list xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-vlan">
+          <id>187</id>
+          <name>Voice-Sw4</name>
+        </vlan-list>
+        <vlan-list xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-vlan">
+          <id>195</id>
+          <name>In-band_Management_V</name>
+        </vlan-list>
+        <vlan-list xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-vlan">
+          <id>180</id>
+          <name>Data-Sw1</name>
+        </vlan-list>
+        <vlan-list xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-vlan">
+          <id>181</id>
+          <name>Voice-Sw1</name>
+        </vlan-list>
+        <vlan-list xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-vlan">
+          <id>182</id>
+          <name>Data-Sw2</name>
+        </vlan-list>
+        <vlan-list xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-vlan">
+          <id>999</id>
+          <name>Anti-VLAN-hopping</name>
+        </vlan-list>
+        <vlan-list xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-vlan">
+          <id>184</id>
+          <name>Data-Sw3</name>
+        </vlan-list>
+        <vlan-list xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-vlan">
+          <id>185</id>
+          <name>Voice-Sw3</name>
+        </vlan-list>
+        <vlan-list xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-vlan">
+          <id>186</id>
+          <name>Data-Sw4</name>
+        </vlan-list>
+        <vlan-list xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-vlan">
+          <id>183</id>
+          <name>Voice-Sw2</name>
+        </vlan-list>
+      </vlan>
+  </native>
+</config>

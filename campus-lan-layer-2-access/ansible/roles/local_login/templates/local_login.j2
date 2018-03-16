@@ -1,0 +1,27 @@
+#jinja2: lstrip_blocks: "true"
+<config>
+  <native xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-native">
+    <enable>
+      <secret>
+        <type>0</type>
+        <secret>{{ enable_secret }}</secret>
+      </secret>
+    </enable>
+    {% for account in local_auth_accounts %}
+    <username>
+      <name>{{ account["username"] }}</name>
+      <privilege>{{ account["privilege_level"] }}</privilege>
+      <secret>
+        <encryption>0</encryption>
+        <secret>{{ account["password"] }}</secret>
+      </secret>
+    </username>
+    {% endfor %}
+    <service>
+      <password-encryption/>
+    </service>
+    <aaa>
+      <new-model xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-aaa"/>
+    </aaa>
+  </native>
+</config>

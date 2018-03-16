@@ -1,0 +1,33 @@
+<config>
+  <native xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-native">
+    <ip>
+      <access-list>
+        <standard xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-acl">
+          <name>10</name>
+          <access-list-seq-rule>
+            <sequence>10</sequence>
+            <permit>
+              <std-ace>
+                <ipv4-prefix>239.1.0.0</ipv4-prefix>
+                <mask>0.0.255.255</mask>
+              </std-ace>
+            </permit>
+          </access-list-seq-rule>
+        </standard>
+      </access-list>
+      <pim>
+        <send-rp-announce xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-multicast">
+          <interface_list>
+            <if-name>Loopback1</if-name>
+            <scope>
+              <pkt-ttl>32</pkt-ttl>
+              <group-list>
+                <acl-ref>10</acl-ref>
+              </group-list>
+            </scope>
+          </interface_list>
+        </send-rp-announce>
+      </pim>
+    </ip>
+  </native>
+</config>

@@ -1,0 +1,6 @@
+---
+- import_playbook: access_procedure_1.yml
+- import_playbook: access_procedure_2.yml
+- import_playbook: access_procedure_3.yml
+- import_playbook: access_procedure_4.yml
+- import_playbook: access_procedure_5.yml

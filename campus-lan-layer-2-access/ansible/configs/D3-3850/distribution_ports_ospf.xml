@@ -1,0 +1,62 @@
+<config>
+  <native xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-native">
+    <interface>
+      <TenGigabitEthernet>
+        <name>1/1/3</name>
+        <ip>
+          <ospf xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-ospf">
+            <message-digest-key>
+              <id>1</id>
+              <md5>
+                <auth-key>c1sco123</auth-key>
+              </md5>
+            </message-digest-key>
+            <network>point-to-point</network>
+          </ospf>
+        </ip>
+      </TenGigabitEthernet>
+      <TenGigabitEthernet>
+        <name>1/1/4</name>
+        <ip>
+          <ospf xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-ospf">
+            <message-digest-key>
+              <id>1</id>
+              <md5>
+                <auth-key>c1sco123</auth-key>
+              </md5>
+            </message-digest-key>
+            <network>point-to-point</network>
+          </ospf>
+        </ip>
+      </TenGigabitEthernet>
+      <TenGigabitEthernet>
+        <name>2/1/3</name>
+        <ip>
+          <ospf xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-ospf">
+            <message-digest-key>
+              <id>1</id>
+              <md5>
+                <auth-key>c1sco123</auth-key>
+              </md5>
+            </message-digest-key>
+            <network>point-to-point</network>
+          </ospf>
+        </ip>
+      </TenGigabitEthernet>
+      <TenGigabitEthernet>
+        <name>2/1/4</name>
+        <ip>
+          <ospf xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-ospf">
+            <message-digest-key>
+              <id>1</id>
+              <md5>
+                <auth-key>c1sco123</auth-key>
+              </md5>
+            </message-digest-key>
+            <network>point-to-point</network>
+          </ospf>
+        </ip>
+      </TenGigabitEthernet>
+    </interface>
+  </native>
+</config>

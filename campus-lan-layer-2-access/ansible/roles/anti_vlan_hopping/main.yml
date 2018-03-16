@@ -1,0 +1,4 @@
+- name: BUILD ANTI_VLAN_HOPPING XML DATA
+  template:
+    src: anti_vlan_hopping.j2
+    dest: "{{ configs_dir }}/{{ inventory_hostname }}/anti_vlan_hopping.xml"

@@ -1,0 +1,12 @@
+---
+- name: DISTRIBUTION PROCEDURE 6
+  hosts: distribution
+  connection: local
+  gather_facts: no
+  vars:
+    switch_role: "distribution"
+  roles:
+    - rendezvous_loopback
+    - rendezvous_candidate
+    - rendezvous_map
+    - rendezvous_rogue

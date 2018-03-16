@@ -1,0 +1,33 @@
+#jinja2: lstrip_blocks: "true"
+<config>
+  <native xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-native">
+    <router>
+      <eigrp xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-eigrp">
+        <id>{{ eigrp["name"] }}</id>
+        <address-family>
+          <type>ipv4</type>
+          <af-ip-list>
+            <unicast-multicast>unicast</unicast-multicast>
+            <autonomous-system>{{ eigrp["as"] }}</autonomous-system>
+            <af-interface>
+              <name>default</name>
+              <passive-interface/>
+            </af-interface>
+          {% for network in eigrp["networks"] %}
+            <network>
+              <number>{{ network | ipaddr("network") }}</number>
+              <wild-card>{{ network | ipaddr("wildcard") }}</wild-card>
+            </network>
+          {% endfor %}
+            <eigrp>
+              <router-id>{{ loopback0 }}</router-id>
+              <stub>
+                <summary/>
+              </stub>
+            </eigrp>
+          </af-ip-list>
+        </address-family>
+      </eigrp>
+    </router>
+  </native>
+</config>

@@ -1,0 +1,22 @@
+<config>
+  <native xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-native">
+      <vlan>
+        <vlan-list xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-vlan">
+          <id>182</id>
+          <name>wired_data</name>
+        </vlan-list>
+        <vlan-list xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-vlan">
+          <id>183</id>
+          <name>wired_voice</name>
+        </vlan-list>
+        <vlan-list xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-vlan">
+          <id>195</id>
+          <name>management</name>
+        </vlan-list>
+        <vlan-list xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-vlan">
+          <id>999</id>
+          <name>anti_vlan_hopping</name>
+        </vlan-list>
+      </vlan>
+  </native>
+</config>

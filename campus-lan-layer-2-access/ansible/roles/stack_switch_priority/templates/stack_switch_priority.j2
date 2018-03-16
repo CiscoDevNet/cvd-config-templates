@@ -1,0 +1,4 @@
+#jinja2: lstrip_blocks: "true"
+{% for switch in stack_config %}
+switch {{ switch.switch_id }} priority {{ switch.priority }}
+{% endfor %}

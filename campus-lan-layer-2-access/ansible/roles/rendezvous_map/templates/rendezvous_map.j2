@@ -1,0 +1,25 @@
+#jinja2: lstrip_blocks: "true"
+<config>
+  <native xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-native">
+    <ip>
+      <access-list>
+        <standard xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-acl">
+          <name>RP-NETS</name>
+        {% set seq = [0] %}
+        {% for network in rendezvous_networks %}
+          {% set _ = seq.append(seq[-1] + 10) %}
+          <access-list-seq-rule>
+            <sequence>{{ seq[-1] }}</sequence>
+            <permit>
+              <std-ace>
+                <ipv4-prefix>{{ network | ipaddr("network") }}</ipv4-prefix>
+                <mask>{{ network | ipaddr("wildcard") }}</mask>
+              </std-ace>
+            </permit>
+          </access-list-seq-rule>
+        {% endfor %}
+        </standard>
+      </access-list>
+    </ip>
+  </native>
+</config>

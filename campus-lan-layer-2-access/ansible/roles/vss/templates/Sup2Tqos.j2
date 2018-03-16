@@ -1,0 +1,28 @@
+! Class maps for 1P3Q8T 1Gb ports service policy
+class-map type lan-queuing match-any PRIORITY-QUEUE-GIG
+  match cos 5 4
+class-map type lan-queuing match-any CONTROL-AND-STREAM-MEDIA
+  match cos 7 6 3 2
+class-map type lan-queuing match-any BULK-DATA-SCAVENGER
+  match cos 1
+!
+policy-map type lan-queuing 1P3Q8T
+  class PRIORITY-QUEUE-GIG
+    priority
+    queue-buffers ratio 15
+  class CONTROL-AND-STREAM-MEDIA
+    bandwidth remaining percent 55
+    queue-buffers ratio 40
+  class BULK-DATA-SCAVENGER
+    bandwidth remaining percent 10
+    queue-buffers ratio 20
+    random-detect cos-based
+    random-detect cos 1 percent 80 100
+  class class-default
+    queue-buffers ratio 25
+    random-detect cos-based
+    random-detect cos 0 percent 80 100
+!
+macro name EgressQoSOneGig
+  service-policy type lan-queuing output 1P3Q8T
+@

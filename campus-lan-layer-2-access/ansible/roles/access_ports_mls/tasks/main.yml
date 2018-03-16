@@ -1,0 +1,9 @@
+- name: BUILD ACCESS PORTS MLS CLI DATA
+  template:
+    src: access_ports_mls.j2
+    dest: "{{ configs_dir }}/{{ inventory_hostname }}/access_ports_mls.cfg"
+
+- name: PUSH CONFIG TO REMOTES
+  ios_config:
+    provider: "{{ provider }}"
+    src: "{{ configs_dir }}/{{ inventory_hostname }}/access_ports_mls.cfg"

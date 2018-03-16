@@ -1,0 +1,39 @@
+<config>
+  <native xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-native">
+    <interface>
+      <TenGigabitEthernet>
+        <name>1/1/7</name>
+        <description>Port-channel4 Member</description>
+        <load-interval>30</load-interval>
+        <logging>
+          <event>
+            <bundle-status/>
+            <link-status/>
+          </event>
+        </logging>
+        <channel-group xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-ethernet">
+          <number>4</number>
+          <mode>active</mode>
+        </channel-group>
+        <channel-protocol xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-ethernet">lacp</channel-protocol>
+      </TenGigabitEthernet>
+      <TenGigabitEthernet>
+        <name>1/1/8</name>
+        <description>Port-channel4 Member</description>
+        <load-interval>30</load-interval>
+        <logging>
+          <event>
+            <bundle-status/>
+            <link-status/>
+          </event>
+        </logging>
+        <channel-group xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-ethernet">
+          <number>4</number>
+          <mode>active</mode>
+        </channel-group>
+        <channel-protocol xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-ethernet">lacp</channel-protocol>
+      </TenGigabitEthernet>
+    </interface>
+  </native>
+</config>
+

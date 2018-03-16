@@ -1,0 +1,402 @@
+<config>
+  <native xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-native">
+    <interface>
+      <GigabitEthernet>
+        <name>1/0/1</name>
+        <switchport>
+          <access xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch"></access>
+          <port-security xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch">
+            <maximum>
+              <max-addresses>11</max-addresses>
+            </maximum>
+          </port-security>
+        </switchport>
+      </GigabitEthernet>
+      <GigabitEthernet>
+        <name>1/0/2</name>
+        <switchport>
+          <access xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch"></access>
+          <port-security xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch">
+            <maximum>
+              <max-addresses>11</max-addresses>
+            </maximum>
+          </port-security>
+        </switchport>
+      </GigabitEthernet>
+      <GigabitEthernet>
+        <name>1/0/3</name>
+        <switchport>
+          <access xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch"></access>
+          <port-security xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch">
+            <maximum>
+              <max-addresses>11</max-addresses>
+            </maximum>
+          </port-security>
+        </switchport>
+      </GigabitEthernet>
+      <GigabitEthernet>
+        <name>1/0/4</name>
+        <switchport>
+          <access xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch"></access>
+          <port-security xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch">
+            <maximum>
+              <max-addresses>11</max-addresses>
+            </maximum>
+          </port-security>
+        </switchport>
+      </GigabitEthernet>
+      <GigabitEthernet>
+        <name>1/0/5</name>
+        <switchport>
+          <access xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch"></access>
+          <port-security xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch">
+            <maximum>
+              <max-addresses>11</max-addresses>
+            </maximum>
+          </port-security>
+        </switchport>
+      </GigabitEthernet>
+      <GigabitEthernet>
+        <name>1/0/6</name>
+        <switchport>
+          <access xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch"></access>
+          <port-security xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch">
+            <maximum>
+              <max-addresses>11</max-addresses>
+            </maximum>
+          </port-security>
+        </switchport>
+      </GigabitEthernet>
+      <GigabitEthernet>
+        <name>1/0/7</name>
+        <switchport>
+          <access xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch"></access>
+          <port-security xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch">
+            <maximum>
+              <max-addresses>11</max-addresses>
+            </maximum>
+          </port-security>
+        </switchport>
+      </GigabitEthernet>
+      <GigabitEthernet>
+        <name>1/0/8</name>
+        <switchport>
+          <access xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch"></access>
+          <port-security xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch">
+            <maximum>
+              <max-addresses>11</max-addresses>
+            </maximum>
+          </port-security>
+        </switchport>
+      </GigabitEthernet>
+      <GigabitEthernet>
+        <name>1/0/9</name>
+        <switchport>
+          <access xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch"></access>
+          <port-security xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch">
+            <maximum>
+              <max-addresses>11</max-addresses>
+            </maximum>
+          </port-security>
+        </switchport>
+      </GigabitEthernet>
+      <GigabitEthernet>
+        <name>1/0/10</name>
+        <switchport>
+          <access xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch"></access>
+          <port-security xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch">
+            <maximum>
+              <max-addresses>11</max-addresses>
+            </maximum>
+          </port-security>
+        </switchport>
+      </GigabitEthernet>
+      <GigabitEthernet>
+        <name>1/0/11</name>
+        <switchport>
+          <access xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch"></access>
+          <port-security xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch">
+            <maximum>
+              <max-addresses>11</max-addresses>
+            </maximum>
+          </port-security>
+        </switchport>
+      </GigabitEthernet>
+      <GigabitEthernet>
+        <name>1/0/12</name>
+        <switchport>
+          <access xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch"></access>
+          <port-security xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch">
+            <maximum>
+              <max-addresses>11</max-addresses>
+            </maximum>
+          </port-security>
+        </switchport>
+      </GigabitEthernet>
+      <GigabitEthernet>
+        <name>1/0/13</name>
+        <switchport>
+          <access xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch"></access>
+          <port-security xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch">
+            <maximum>
+              <max-addresses>11</max-addresses>
+            </maximum>
+          </port-security>
+        </switchport>
+      </GigabitEthernet>
+      <GigabitEthernet>
+        <name>1/0/14</name>
+        <switchport>
+          <access xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch"></access>
+          <port-security xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch">
+            <maximum>
+              <max-addresses>11</max-addresses>
+            </maximum>
+          </port-security>
+        </switchport>
+      </GigabitEthernet>
+      <GigabitEthernet>
+        <name>1/0/15</name>
+        <switchport>
+          <access xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch"></access>
+          <port-security xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch">
+            <maximum>
+              <max-addresses>11</max-addresses>
+            </maximum>
+          </port-security>
+        </switchport>
+      </GigabitEthernet>
+      <GigabitEthernet>
+        <name>1/0/16</name>
+        <switchport>
+          <access xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch"></access>
+          <port-security xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch">
+            <maximum>
+              <max-addresses>11</max-addresses>
+            </maximum>
+          </port-security>
+        </switchport>
+      </GigabitEthernet>
+      <GigabitEthernet>
+        <name>1/0/17</name>
+        <switchport>
+          <access xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch"></access>
+          <port-security xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch">
+            <maximum>
+              <max-addresses>11</max-addresses>
+            </maximum>
+          </port-security>
+        </switchport>
+      </GigabitEthernet>
+      <GigabitEthernet>
+        <name>1/0/18</name>
+        <switchport>
+          <access xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch"></access>
+          <port-security xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch">
+            <maximum>
+              <max-addresses>11</max-addresses>
+            </maximum>
+          </port-security>
+        </switchport>
+      </GigabitEthernet>
+      <GigabitEthernet>
+        <name>1/0/19</name>
+        <switchport>
+          <access xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch"></access>
+          <port-security xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch">
+            <maximum>
+              <max-addresses>11</max-addresses>
+            </maximum>
+          </port-security>
+        </switchport>
+      </GigabitEthernet>
+      <GigabitEthernet>
+        <name>1/0/20</name>
+        <switchport>
+          <access xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch"></access>
+          <port-security xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch">
+            <maximum>
+              <max-addresses>11</max-addresses>
+            </maximum>
+          </port-security>
+        </switchport>
+      </GigabitEthernet>
+      <GigabitEthernet>
+        <name>1/0/21</name>
+        <switchport>
+          <access xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch"></access>
+          <port-security xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch">
+            <maximum>
+              <max-addresses>11</max-addresses>
+            </maximum>
+          </port-security>
+        </switchport>
+      </GigabitEthernet>
+      <GigabitEthernet>
+        <name>1/0/22</name>
+        <switchport>
+          <access xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch"></access>
+          <port-security xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch">
+            <maximum>
+              <max-addresses>11</max-addresses>
+            </maximum>
+          </port-security>
+        </switchport>
+      </GigabitEthernet>
+      <GigabitEthernet>
+        <name>1/0/23</name>
+        <switchport>
+          <access xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch"></access>
+          <port-security xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch">
+            <maximum>
+              <max-addresses>11</max-addresses>
+            </maximum>
+          </port-security>
+        </switchport>
+      </GigabitEthernet>
+      <GigabitEthernet>
+        <name>1/0/24</name>
+        <switchport>
+          <access xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch"></access>
+          <port-security xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch">
+            <maximum>
+              <max-addresses>11</max-addresses>
+            </maximum>
+          </port-security>
+        </switchport>
+      </GigabitEthernet>
+      <GigabitEthernet>
+        <name>1/0/25</name>
+        <switchport>
+          <access xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch"></access>
+          <port-security xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch">
+            <maximum>
+              <max-addresses>11</max-addresses>
+            </maximum>
+          </port-security>
+        </switchport>
+      </GigabitEthernet>
+      <GigabitEthernet>
+        <name>1/0/26</name>
+        <switchport>
+          <access xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch"></access>
+          <port-security xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch">
+            <maximum>
+              <max-addresses>11</max-addresses>
+            </maximum>
+          </port-security>
+        </switchport>
+      </GigabitEthernet>
+      <GigabitEthernet>
+        <name>1/0/27</name>
+        <switchport>
+          <access xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch"></access>
+          <port-security xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch">
+            <maximum>
+              <max-addresses>11</max-addresses>
+            </maximum>
+          </port-security>
+        </switchport>
+      </GigabitEthernet>
+      <GigabitEthernet>
+        <name>1/0/28</name>
+        <switchport>
+          <access xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch"></access>
+          <port-security xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch">
+            <maximum>
+              <max-addresses>11</max-addresses>
+            </maximum>
+          </port-security>
+        </switchport>
+      </GigabitEthernet>
+      <GigabitEthernet>
+        <name>1/0/29</name>
+        <switchport>
+          <access xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch"></access>
+          <port-security xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch">
+            <maximum>
+              <max-addresses>11</max-addresses>
+            </maximum>
+          </port-security>
+        </switchport>
+      </GigabitEthernet>
+      <GigabitEthernet>
+        <name>1/0/30</name>
+        <switchport>
+          <access xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch"></access>
+          <port-security xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch">
+            <maximum>
+              <max-addresses>11</max-addresses>
+            </maximum>
+          </port-security>
+        </switchport>
+      </GigabitEthernet>
+      <GigabitEthernet>
+        <name>1/0/31</name>
+        <switchport>
+          <access xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch"></access>
+          <port-security xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch">
+            <maximum>
+              <max-addresses>11</max-addresses>
+            </maximum>
+          </port-security>
+        </switchport>
+      </GigabitEthernet>
+      <GigabitEthernet>
+        <name>1/0/32</name>
+        <switchport>
+          <access xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch"></access>
+          <port-security xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch">
+            <maximum>
+              <max-addresses>11</max-addresses>
+            </maximum>
+          </port-security>
+        </switchport>
+      </GigabitEthernet>
+      <GigabitEthernet>
+        <name>1/0/33</name>
+        <switchport>
+          <access xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch"></access>
+          <port-security xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch">
+            <maximum>
+              <max-addresses>11</max-addresses>
+            </maximum>
+          </port-security>
+        </switchport>
+      </GigabitEthernet>
+      <GigabitEthernet>
+        <name>1/0/34</name>
+        <switchport>
+          <access xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch"></access>
+          <port-security xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch">
+            <maximum>
+              <max-addresses>11</max-addresses>
+            </maximum>
+          </port-security>
+        </switchport>
+      </GigabitEthernet>
+      <GigabitEthernet>
+        <name>1/0/35</name>
+        <switchport>
+          <access xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch"></access>
+          <port-security xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch">
+            <maximum>
+              <max-addresses>11</max-addresses>
+            </maximum>
+          </port-security>
+        </switchport>
+      </GigabitEthernet>
+      <GigabitEthernet>
+        <name>1/0/36</name>
+        <switchport>
+          <access xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch"></access>
+          <port-security xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch">
+            <maximum>
+              <max-addresses>11</max-addresses>
+            </maximum>
+          </port-security>
+        </switchport>
+      </GigabitEthernet>
+    </interface>
+  </native>
+</config>

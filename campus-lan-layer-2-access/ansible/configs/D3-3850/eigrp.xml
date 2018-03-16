@@ -1,0 +1,34 @@
+<config>
+  <native xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-native">
+    <router>
+      <eigrp xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-eigrp">
+        <id>LAN</id>
+        <address-family>
+          <type>ipv4</type>
+          <af-ip-list>
+            <unicast-multicast>unicast</unicast-multicast>
+            <autonomous-system>100</autonomous-system>
+            <af-interface>
+              <name>default</name>
+              <passive-interface/>
+            </af-interface>
+            <network>
+              <number>10.4.0.0</number>
+              <wild-card>0.0.15.255</wild-card>
+            </network>
+            <network>
+              <number>10.4.0.0</number>
+              <wild-card>0.1.255.255</wild-card>
+            </network>
+            <eigrp>
+              <router-id>10.4.95.254</router-id>
+              <stub>
+                <summary/>
+              </stub>
+            </eigrp>
+          </af-ip-list>
+        </address-family>
+      </eigrp>
+    </router>
+  </native>
+</config>

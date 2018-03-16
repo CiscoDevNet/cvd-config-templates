@@ -1,0 +1,17 @@
+---
+# OPTION 3 - CONFIGURE CISCO CATALYST 4500E VSS AND 4500-X VSS PLATFORMS
+- name: STEP 1 - SET ETHERCHANNELS TO USE THE TRAFFIC SOURCE AND DESTINATION IP ADDRESS
+  ios_config:
+    lines:
+      - port-channel load-balance vlan-src-dst-mixed-ip-port
+      
+- name: STEP 2 - CONFIGURE BASE QOS POLICY
+  template:
+    src: 4Kqos_base.j2
+    dest: "{{ configs_dir }}/{{ inventory_hostname }}/vss_4Kqos_base.cfg"
+
+- name: PUSH CONFIG TO REMOTES
+  ios_config:
+    save_when: modified
+    provider: "{{ provider }}"
+    src: "{{ configs_dir }}/{{ inventory_hostname }}/vss_4Kqos_base.cfg"

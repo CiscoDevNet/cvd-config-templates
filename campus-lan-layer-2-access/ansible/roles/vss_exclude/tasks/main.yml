@@ -1,0 +1,14 @@
+- name: BUILD VSS EXCLUDE SUMMARIZATION CONFIG DATA
+  template:
+    src: vss_exclude.j2
+    dest: "{{ configs_dir }}/{{ inventory_hostname }}/vss_exclude.cfg"
+
+- name: PUSH CONFIG TO REMOTES
+  ios_config:
+    provider: "{{ provider }}"
+    src: "{{ configs_dir }}/{{ inventory_hostname }}/vss_exclude.cfg"
+
+- name: WAIT AN ARBITRARY PERIOD FOR CONFIG SYNC
+  pause:
+    prompt: "Wait for configuration synchronization."
+    seconds: 60

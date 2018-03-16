@@ -1,0 +1,4 @@
+router ospf {{ ospf["id"] }}
+{% for network in ospf["summaries"] %}
+  area {{ network["area"] }} range {{ network["ipv4_network"] | ipaddr("network") }} {{ network["ipv4_network"] | ipaddr("netmask") }}
+{% endfor %}

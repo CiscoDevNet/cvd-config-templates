@@ -1,0 +1,5 @@
+#jinja2: lstrip_blocks: "true"
+{% for port in access_ports %}
+interface range {{ port['name'] }}{{ port['module'] }}/{{ port['card'] }}/{{ port['ports'] }}
+  switchport host
+{% endfor %}

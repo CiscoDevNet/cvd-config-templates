@@ -1,0 +1,17 @@
+<config>
+  <native xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-native">
+    <ip>
+      <dhcp>
+        <snooping-conf xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-dhcp">
+          <snooping/>
+        </snooping-conf>
+        <snooping xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-dhcp">
+          <information>
+            <option-conf>false</option-conf>
+          </information>
+          <vlan>182-183</vlan>
+        </snooping>
+      </dhcp>
+    </ip>
+  </native>
+</config>

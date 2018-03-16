@@ -1,0 +1,16 @@
+- name: BUILD DIST-TO-ACCESS PORT-CHANNEL XML DATA
+  template:
+    src: l2_portchannel_to_access.j2
+    dest: "{{ configs_dir }}/{{ inventory_hostname }}/l2_portchannel_to_access.xml"
+
+- name: PUSH NETCONF TO REMOTES
+  netconf_config:
+    host: "{{ ansible_host }}"
+    username: "{{ ansible_user }}"
+    password: "{{ ansible_ssh_pass }}"
+    src: "{{ configs_dir }}/{{ inventory_hostname }}/l2_portchannel_to_access.xml"
+
+- name: WAIT AN ARBITRARY PERIOD FOR CONFIG SYNC
+  pause:
+    prompt: "Wait for configuration synchronization."
+    seconds: 60

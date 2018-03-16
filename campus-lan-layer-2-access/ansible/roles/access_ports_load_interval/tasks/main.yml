@@ -1,0 +1,15 @@
+- name: BUILD ACCESS PORT LOAD INTERVAL XML DATA
+  template:
+    src: access_ports_load_interval.j2
+    dest: "{{ configs_dir }}/{{ inventory_hostname }}/access_ports_load_interval.xml"
+- name: PUSH NETCONF TO REMOTES
+  netconf_config:
+    host: "{{ ansible_host }}"
+    username: "{{ ansible_user }}"
+    password: "{{ ansible_ssh_pass }}"
+    src: "{{ configs_dir }}/{{ inventory_hostname }}/access_ports_load_interval.xml"
+
+- name: WAIT AN ARBITRARY PERIOD FOR CONFIG SYNC
+  pause:
+    prompt: "Wait for configuration synchronization."
+    seconds: 60

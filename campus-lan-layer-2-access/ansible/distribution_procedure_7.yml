@@ -1,0 +1,12 @@
+---
+- name: DISTRIBUTION PROCEDURE 7
+  hosts: distribution
+  connection: local
+  gather_facts: no
+  vars:
+    switch_role: "distribution"
+  roles:
+    - name: dhcp_server
+      when: dhcp_excl_low is defined
+    - l2_portchannel_to_access
+    - l3_svi

@@ -1,0 +1,48 @@
+<config>
+  <native xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-native">
+    <ip>
+      <http xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-http">
+        <server>false</server>
+        <secure-server>true</secure-server>
+      </http>
+      <domain>
+        <name>cisco.local</name>
+        <lookup>true</lookup>
+      </domain>
+      <ssh>
+        <version>2</version>
+      </ssh>
+      <scp>
+        <server>
+          <enable/>
+        </server>
+      </scp>
+    </ip>
+    <line>
+      <vty>
+        <first>0</first>
+        <last>4</last>
+        <transport>
+          <input>
+            <input>ssh</input>
+          </input>
+          <preferred>
+            <protocol>none</protocol>
+          </preferred>
+        </transport>
+      </vty>
+      <vty>
+        <first>5</first>
+        <last>15</last>
+        <transport>
+          <input>
+            <input>ssh</input>
+          </input>
+          <preferred>
+            <protocol>none</protocol>
+          </preferred>
+        </transport>
+      </vty>
+    </line>
+  </native>
+</config>

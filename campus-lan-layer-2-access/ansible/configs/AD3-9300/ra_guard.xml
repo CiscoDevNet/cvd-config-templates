@@ -1,0 +1,14 @@
+<config>
+  <native xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-native">
+    <ipv6>
+      <nd>
+        <raguard xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-nd">
+          <policy>
+            <raguard-policy-name>HOST_POLICY</raguard-policy-name>
+          </policy>
+        </raguard>
+      </nd>
+    </ipv6>
+  </native>
+</config>
+

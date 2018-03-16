@@ -1,0 +1,112 @@
+---
+model: 3850
+loopback0: 10.4.95.254
+loopback1: 10.4.95.253
+multicast_network: 239.1.0.0/16
+# routing_protocol: 'eigrp' or 'ospf'
+routing_protocol: eigrp
+rendezvous_networks:
+  - 10.4.40.0/24
+  - 10.4.48.0/24
+multicast_source_networks:
+  - 10.4.40.0/24
+eigrp:
+  name: LAN
+  as: 100
+  networks:
+    - 10.4.0.0/20
+    - 10.4.0.0/15
+  summaries:
+    - 10.4.0.0/19
+ospf:
+  id: 100
+  networks:
+    - ipv4_network: 10.4.0.0/20
+      area: 40
+    - ipv4_network: 10.4.40.0/24
+      area: 0
+  summaries:
+    - area: 40
+      ipv4_network: 10.4.0.0/19
+port_channels:
+  # Currently, only `routed_uplink` or `access_downlink` types are supported
+  #
+  #   id|int:
+  #   type: routed_uplink
+  #   ipv4_addr: str|required
+  #   interfaces: list|required
+  #     - string
+  #   id|int:
+  #   type: access_downlink
+  #   member_vlans: list|required
+  #     - int
+  #   interfaces: list|required
+  #     - string
+  #
+  - id: 1
+    type: access_downlink
+    access_nei: AD3-4507-1
+    member_vlans:
+      - "{{ mgmt_vlan }}"
+      - 180
+      - 181
+    interfaces:
+      - TenGigabitEthernet1/0/1
+      - TenGigabitEthernet1/0/2
+      - TenGigabitEthernet2/0/1
+      - TenGigabitEthernet2/0/2
+  - id: 2
+    type: access_downlink
+    access_nei: AD3-3850
+    member_vlans:
+      - "{{ mgmt_vlan }}"
+      - 182
+      - 183
+    interfaces:
+      - TenGigabitEthernet1/0/3
+      - TenGigabitEthernet1/0/4
+      - TenGigabitEthernet2/0/3
+      - TenGigabitEthernet2/0/4
+  - id: 3
+    type: access_downlink
+    access_nei: AD3-3650
+    member_vlans:
+      - "{{ mgmt_vlan }}"
+      - 184
+      - 185
+    interfaces:
+      - TenGigabitEthernet1/0/5
+      - TenGigabitEthernet1/0/6
+      - TenGigabitEthernet2/0/5
+      - TenGigabitEthernet2/0/6
+  - id: 4
+    type: access_downlink
+    access_nei: AD3-9300
+    member_vlans:
+      - "{{ mgmt_vlan }}"
+      - 186
+      - 187
+    interfaces:
+      - TenGigabitEthernet1/0/7
+      - TenGigabitEthernet1/0/8
+      - TenGigabitEthernet2/0/7
+      - TenGigabitEthernet2/0/8
+  - id: 34
+    type: routed_uplink
+    ipv4_addr: 10.4.40.18
+    interfaces:
+      - TenGigabitEthernet1/1/3
+      - TenGigabitEthernet1/1/4
+      - TenGigabitEthernet2/1/3
+      - TenGigabitEthernet2/1/4
+uplinks:
+  - interface: Port-channel34
+oob_interface:
+  interface: GigabitEthernet1/0/32
+  ipv4_addr: 172.16.33.4
+# dist_ha_option:
+#   1: Convert Cisco Catalyst 6807-XL, 6500-E, 6880-X, 4500E, and 4500-X to Virtual Switching System using Easy-VSS
+#   2: Configure Cisco Catalyst 6807-XL, 6500-E, or 6880-X Virtual Switching System
+#   3: Configure Cisco Catalyst 4500E VSS and 4500-X VSS platforms
+#   4: Configure the Cisco Catalyst 3850 platform
+dist_ha_option: 4

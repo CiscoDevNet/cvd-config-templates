@@ -1,0 +1,28 @@
+- name: BUILD ACCESS PORTS MACRO CLI DATA
+  template:
+    src: access_ports_macro.j2
+    dest: "{{ configs_dir }}/{{ inventory_hostname }}/apply_macro.cfg"
+  when: "'access' in group_names"
+
+- name: BUILD DISTRIBUTION PORT CHANNEL PORTS MACRO CLI DATA
+  template:
+    src: apply_macro_distribution_portchannel.j2
+    dest: "{{ configs_dir }}/{{ inventory_hostname }}/apply_macro.cfg"
+  when: "'distribution' in group_names and uplinks[0]['interface'].startswith('Port-channel')"
+
+- name: BUILD DISTRIBUTION NON PORT CHANNEL PORTS MACRO CLI DATA
+  template:
+    src: apply_macro_distribution_no_portchannel.j2
+    dest: "{{ configs_dir }}/{{ inventory_hostname }}/apply_macro.cfg"
+  when: "'distribution' in group_names and not uplinks[0]['interface'].startswith('Port-channel')"
+
+- name: PUSH CONFIG TO REMOTES
+  ios_config:
+    provider: "{{ provider }}"
+    save_when: modified
+    src: "{{ configs_dir }}/{{ inventory_hostname }}/apply_macro.cfg"
+
+- name: WAIT AN ARBITRARY PERIOD FOR CONFIG SYNC
+  pause:
+    prompt: "Wait for configuration synchronization."
+    seconds: 60

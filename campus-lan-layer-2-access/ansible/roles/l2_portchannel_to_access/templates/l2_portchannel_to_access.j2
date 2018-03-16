@@ -1,0 +1,73 @@
+#jinja2: lstrip_blocks: "true"
+<config>
+  <native xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-native">
+    <interface>
+    {% for port_channel in port_channels|selectattr("type", "equalto", "access_downlink")|list %}
+      {% for interface in port_channel["interfaces"] %}
+      {% set interface_type = interface.split("Ethernet") %}
+      <{{ interface_type[0] ~ "Ethernet" }}>
+        <name>{{ interface_type[1] }}</name>
+        <description>{{ "Port-channel" ~ port_channel["id"] ~ " Member" }}</description>
+        <switchport>
+          <mode xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch">
+            <trunk/>
+          </mode>
+          <trunk xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch">
+            <allowed>
+              <vlan>
+                <vlans>{{ port_channel["member_vlans"]|join(",") }}</vlans>
+              </vlan>
+            </allowed>
+            <native>
+              <vlan>{{ anti_vlan_hop }}</vlan>
+            </native>
+          </trunk>
+        </switchport>
+        <load-interval>30</load-interval>
+        <logging>
+          <event>
+            <link-status/>
+            <trunk-status/>
+            <bundle-status/>
+          </event>
+        </logging>
+        <channel-group xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-ethernet">
+          <number>{{ port_channel["id"] }}</number>
+          <mode>active</mode>
+        </channel-group>
+        <channel-protocol xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-ethernet">{{ etherchannel_protocol }}</channel-protocol>
+      </{{ interface_type[0] ~ "Ethernet" }}>
+      {% endfor %}
+    {% endfor %}
+    {% for port_channel in port_channels|selectattr("type", "equalto", "access_downlink")|list %}
+      <Port-channel>
+        <name>{{ port_channel["id"] }}</name>
+        <description>Etherchannel Link to {{ port_channel["access_nei"] }}</description>
+        <switchport>
+          <mode xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch">
+            <trunk/>
+          </mode>
+          <trunk xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch">
+            <allowed>
+              <vlan>
+                <vlans>{{ port_channel["member_vlans"]|join(",") }}</vlans>
+              </vlan>
+            </allowed>
+            <native>
+              <vlan>{{ anti_vlan_hop }}</vlan>
+            </native>
+          </trunk>
+        </switchport>
+        <load-interval>30</load-interval>
+        <logging>
+          <event>
+            <link-status/>
+            <trunk-status/>
+            <bundle-status/>
+          </event>
+        </logging>
+      </Port-channel>
+    {% endfor %}
+    </interface>
+  </native>
+</config>

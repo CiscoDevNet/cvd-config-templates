@@ -1,0 +1,18 @@
+model: 9300
+inband_mgmt_address: 10.4.95.8
+data_vlan: 186
+voice_vlan: 187
+access_ports:
+  - name: GigabitEthernet
+    module: 1
+    card: 0
+    ports: 1-36
+
+port_channels:
+  4:
+    type: uplink
+    interfaces:
+      - TenGigabitEthernet1/1/7
+      - TenGigabitEthernet1/1/8
+uplinks:
+  - interface: Port-channel4

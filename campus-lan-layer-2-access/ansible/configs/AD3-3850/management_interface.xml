@@ -1,0 +1,17 @@
+<config>
+  <native xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-native">
+      <interface>
+        <Vlan>
+          <name>195</name>
+          <ip>
+            <address>
+              <primary>
+                <address>10.4.95.6</address>
+                <mask>255.255.255.128</mask>
+              </primary>
+            </address>
+          </ip>
+        </Vlan>
+      </interface>
+  </native>
+</config>

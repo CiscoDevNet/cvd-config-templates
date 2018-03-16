@@ -1,0 +1,10 @@
+- name: BUILD STP ROOT CLI DATA
+  template:
+    src: stp_root.j2
+    dest: "{{ configs_dir }}/{{ inventory_hostname }}/stp_root.cfg"
+
+- name: PUSH CONFIG TO REMOTES
+  ios_config:
+    save_when: modified
+    provider: "{{ provider }}"
+    src: "{{ configs_dir }}/{{ inventory_hostname }}/stp_root.cfg"

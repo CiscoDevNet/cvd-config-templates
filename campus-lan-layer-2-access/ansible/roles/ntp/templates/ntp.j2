@@ -1,0 +1,39 @@
+<config>
+  <native xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-native">
+    <ntp>
+      <server xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-ntp">
+        <server-list>
+          <ip-address>{{ ntp_server }}</ip-address>
+        </server-list>
+      </server>
+    </ntp>
+    <clock>
+      <timezone>
+          <zone>{{ clock_timezone }}</zone>
+          <hours>{{ clock_offset }}</hours>
+          <minutes>0</minutes>
+      </timezone>
+      <summer-time>
+        <zone>{{ clock_summer_time }}</zone>
+        <recurring/>
+      </summer-time>
+    </clock>
+    <service>
+      <timestamps>
+        <debug>
+          <datetime>
+            <msec>
+              <localtime/>
+            </msec>
+          </datetime>
+        </debug>
+        <log>
+          <datetime>
+            <msec/>
+            <localtime/>
+          </datetime>
+        </log>
+      </timestamps>
+    </service>
+  </native>
+</config>

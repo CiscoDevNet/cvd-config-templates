@@ -1,0 +1,10 @@
+- name: BUILD STACK POWER REDUNDNACY CONFIG CLI DATA
+  template:
+    src: stack_switch_power.j2
+    dest: "{{ configs_dir }}/{{ inventory_hostname }}/stack_switch_power.cfg"
+
+- name: PUSH CONFIG TO REMOTES
+  ios_config:
+    provider: "{{ provider }}"
+    src: "{{ configs_dir }}/{{ inventory_hostname }}/stack_switch_power.cfg"
+    save_when: modified

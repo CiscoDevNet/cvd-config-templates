@@ -1,0 +1,22 @@
+---
+- name: ACCESS PROCEDURE 4
+  hosts: access
+  connection: local
+  gather_facts: no
+  vars:
+    switch_role: "access"
+  roles:
+    - access_ports_vlan
+    - access_ports_host
+    - access_ports_load_interval
+    - access_ports_mac_security
+    - access_ports_aging_security
+    - access_ports_violation_security
+    - access_ports_snooping
+    - access_ports_source_guard
+    - access_ports_nd_security
+    - name: apply_macro
+      vars:
+        desired_macro: "AccessEdgeQoS"
+    - name: access_ports_mls
+      when: "model | string == '2960'"

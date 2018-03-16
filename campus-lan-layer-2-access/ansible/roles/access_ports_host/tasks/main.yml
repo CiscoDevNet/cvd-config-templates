@@ -1,0 +1,15 @@
+- name: BUILD ACCESS PORTS HOST CLI DATA
+  template:
+    src: access_ports_host_cli.j2
+    dest: "{{ configs_dir }}/{{ inventory_hostname }}/access_ports_host.cfg"
+
+- name: PUSH CONFIG TO REMOTES
+  ios_config:
+    save_when: modified
+    provider: "{{ provider }}"
+    src: "{{ configs_dir }}/{{ inventory_hostname }}/access_ports_host.cfg"
+
+- name: WAIT AN ARBITRARY PERIOD FOR CONFIG SYNC
+  pause:
+    prompt: "Wait for configuration synchronization."
+    seconds: 60

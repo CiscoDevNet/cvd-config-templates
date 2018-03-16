@@ -1,0 +1,33 @@
+#jinja2: lstrip_blocks: "true"
+<config>
+  <native xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-native">
+    {% set interface_type = oob_interface["interface"].split("Ethernet") %}
+    <interface>
+      <{{ interface_type[0] ~ "Ethernet" }}>
+        <name>{{ interface_type[-1] }}</name>
+        <switchport-conf>
+          <switchport>false</switchport>
+        </switchport-conf>
+        <ip>
+          <address>
+            <primary>
+              <address>{{ oob_interface['ipv4_addr'] }}</address>
+              <mask>{{ oob_subnet|ipaddr('netmask') }}</mask>
+            </primary>
+          </address>
+        </ip>
+      </{{ interface_type[0] ~ "Ethernet" }}>
+    </interface>
+    <ip>
+      <route>
+        <ip-route-interface-forwarding-list>
+          <prefix>{{ oob_subnet|ipaddr('network') }}</prefix>
+          <mask>{{ oob_subnet|ipaddr('netmask') }}</mask>
+          <fwd-list>
+            <fwd>{{ oob_subnet|ipaddr('1')|ipaddr('address') }}</fwd>
+          </fwd-list>
+        </ip-route-interface-forwarding-list>
+      </route>
+    </ip>
+  </native>
+</config>

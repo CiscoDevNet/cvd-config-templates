@@ -1,0 +1,22 @@
+<config>
+  <native xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-native">
+      <vlan>
+        <vlan-list xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-vlan">
+          <id>{{ data_vlan }}</id>
+          <name>{{ vlan_data[data_vlan]['vlan_name'] }}</name>
+        </vlan-list>
+        <vlan-list xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-vlan">
+          <id>{{ voice_vlan }}</id>
+          <name>{{ vlan_data[voice_vlan]['vlan_name'] }}</name>
+        </vlan-list>
+        <vlan-list xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-vlan">
+          <id>{{ mgmt_vlan }}</id>
+          <name>{{ vlan_data[mgmt_vlan]['vlan_name'] }}</name>
+        </vlan-list>
+        <vlan-list xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-vlan">
+          <id>{{ anti_vlan_hop }}</id>
+          <name>{{ vlan_data[anti_vlan_hop]['vlan_name'] }}</name>
+        </vlan-list>
+      </vlan>
+  </native>
+</config>

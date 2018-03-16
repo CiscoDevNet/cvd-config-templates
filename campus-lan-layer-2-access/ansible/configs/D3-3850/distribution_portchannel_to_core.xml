@@ -1,0 +1,104 @@
+<config>
+  <native xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-native">
+    <interface>
+      <TenGigabitEthernet>
+        <name>1/1/3</name>
+        <description>Port-channel34 Member</description>
+        <switchport-conf>
+          <switchport>false</switchport>
+        </switchport-conf>
+        <load-interval>30</load-interval>
+        <logging>
+          <event>
+            <link-status/>
+            <trunk-status/>
+            <bundle-status/>
+          </event>
+        </logging>
+        <carrier-delay xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-ethernet">
+          <msec>0</msec>
+        </carrier-delay>
+        <channel-group xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-ethernet">
+          <number>34</number>
+          <mode>active</mode>
+        </channel-group>
+        <channel-protocol xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-ethernet">lacp</channel-protocol>
+      </TenGigabitEthernet>
+    </interface>
+    <interface>
+      <TenGigabitEthernet>
+        <name>1/1/4</name>
+        <description>Port-channel34 Member</description>
+        <switchport-conf>
+          <switchport>false</switchport>
+        </switchport-conf>
+        <load-interval>30</load-interval>
+        <logging>
+          <event>
+            <link-status/>
+            <trunk-status/>
+            <bundle-status/>
+          </event>
+        </logging>
+        <carrier-delay xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-ethernet">
+          <msec>0</msec>
+        </carrier-delay>
+        <channel-group xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-ethernet">
+          <number>34</number>
+          <mode>active</mode>
+        </channel-group>
+        <channel-protocol xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-ethernet">lacp</channel-protocol>
+      </TenGigabitEthernet>
+    </interface>
+    <interface>
+      <TenGigabitEthernet>
+        <name>2/1/3</name>
+        <description>Port-channel34 Member</description>
+        <switchport-conf>
+          <switchport>false</switchport>
+        </switchport-conf>
+        <load-interval>30</load-interval>
+        <logging>
+          <event>
+            <link-status/>
+            <trunk-status/>
+            <bundle-status/>
+          </event>
+        </logging>
+        <carrier-delay xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-ethernet">
+          <msec>0</msec>
+        </carrier-delay>
+        <channel-group xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-ethernet">
+          <number>34</number>
+          <mode>active</mode>
+        </channel-group>
+        <channel-protocol xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-ethernet">lacp</channel-protocol>
+      </TenGigabitEthernet>
+    </interface>
+    <interface>
+      <TenGigabitEthernet>
+        <name>2/1/4</name>
+        <description>Port-channel34 Member</description>
+        <switchport-conf>
+          <switchport>false</switchport>
+        </switchport-conf>
+        <load-interval>30</load-interval>
+        <logging>
+          <event>
+            <link-status/>
+            <trunk-status/>
+            <bundle-status/>
+          </event>
+        </logging>
+        <carrier-delay xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-ethernet">
+          <msec>0</msec>
+        </carrier-delay>
+        <channel-group xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-ethernet">
+          <number>34</number>
+          <mode>active</mode>
+        </channel-group>
+        <channel-protocol xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-ethernet">lacp</channel-protocol>
+      </TenGigabitEthernet>
+    </interface>
+  </native>
+</config>

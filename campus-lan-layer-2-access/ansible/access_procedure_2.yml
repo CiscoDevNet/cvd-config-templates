@@ -1,0 +1,20 @@
+---
+- name: ACCESS PROCEDURE 2
+  hosts: access
+  connection: local
+  gather_facts: no
+  vars:
+    switch_role: "access"
+  roles:
+    - hostname
+    - vtp
+    - stp
+    - udld
+    - errdisable
+    - dns
+    - mgmt_protocols
+    - snmp
+    # - mgmt_acl
+    # - local_login
+    - tacacs
+    - ntp

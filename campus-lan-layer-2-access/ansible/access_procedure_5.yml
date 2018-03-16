@@ -1,0 +1,15 @@
+---
+- name: ACCESS PROCEDURE 5
+  hosts: access
+  connection: local
+  gather_facts: no
+  vars:
+    switch_role: "access"
+  roles:
+    - name: apply_macro
+      vars:
+        desired_macro: "EgressQoS"
+    - etherchannel
+    - trunk_uplink
+    - anti_vlan_hopping
+    - set_native_vlan

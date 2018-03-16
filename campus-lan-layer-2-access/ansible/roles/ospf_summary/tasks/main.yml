@@ -1,0 +1,14 @@
+- name: BUILD OSPF SUMMARIZATION XML DATA
+  template:
+    src: ospf_summary_cli.j2
+    dest: "{{ configs_dir }}/{{ inventory_hostname }}/ospf_summary_cli.cfg"
+
+- name: PUSH NETCONF TO REMOTES
+  ios_config:
+    provider: "{{ provider }}"
+    src: "{{ configs_dir }}/{{ inventory_hostname }}/ospf_summary_cli.cfg"
+
+- name: WAIT AN ARBITRARY PERIOD FOR CONFIG SYNC
+  pause:
+    prompt: "Wait for configuration synchronization."
+    seconds: 60

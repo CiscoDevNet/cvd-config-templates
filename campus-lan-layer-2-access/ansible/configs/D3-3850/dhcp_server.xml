@@ -1,0 +1,25 @@
+<config>
+  <native xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-native">
+    <ip>
+      <domain>
+        <name>cisco.local</name>
+      </domain>
+      <dhcp>
+        <excluded-address xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-dhcp">
+          <low-address>192.0.0.1</low-address>
+          <high-address>192.0.0.10</high-address>
+        </excluded-address>
+        <pool xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-dhcp">
+          <id>access</id>
+          <default-router>192.0.0.1</default-router>
+          <dns-server>10.4.48.10</dns-server>
+          <domain-name>cisco.local</domain-name>
+          <network>
+            <number>192.0.0.0</number>
+            <mask>255.255.255.128</mask>
+          </network>
+        </pool>
+      </dhcp>
+    </ip>
+  </native>
+</config>

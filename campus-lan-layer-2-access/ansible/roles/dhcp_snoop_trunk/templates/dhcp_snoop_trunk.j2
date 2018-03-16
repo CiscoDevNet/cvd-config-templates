@@ -1,0 +1,38 @@
+<config>
+  <native xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-native">
+    <interface>
+    {% set portchannel_ids = [] %}
+    {% for interface in uplinks %}
+      {% if interface["interface"].startswith("Port-channel") %}
+        {% set _ = portchannel_ids.append(interface["interface"].lstrip("Port-channel")) %}
+      {% endif %}
+    {% endfor %}
+      {% for id in portchannel_ids %}
+      <Port-channel>
+        <name>{{ id }}</name>
+          <ip>
+            <dhcp>
+              <snooping xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-dhcp">
+                <trust/>
+              </snooping>
+            </dhcp>
+          </ip>
+      </Port-channel>
+        {% for interface in port_channels[id | int]["interfaces"] %}
+          {% set interface_type = interface.split("Ethernet") %}
+      <{{ interface_type[0] ~ "Ethernet" }}>
+        <name>{{ interface_type[1] }}</name>
+          <ip>
+            <dhcp>
+              <snooping xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-dhcp">
+                <trust/>
+              </snooping>
+            </dhcp>
+          </ip>
+      </{{ interface_type[0] ~ "Ethernet" }}>
+        {% endfor %}
+    {% endfor %}
+    </interface>
+  </native>
+</config>
+

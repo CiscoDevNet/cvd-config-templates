@@ -1,0 +1,39 @@
+---
+model: 3850
+inband_mgmt_address: 10.4.95.6
+data_vlan: 182
+voice_vlan: 183
+access_ports:
+  - name: GigabitEthernet
+    module: 1
+    card: 0
+    ports: 1-36
+  - name: TenGigabitEthernet
+    module: 1
+    card: 0
+    ports: 37-48
+  - name: TenGigabitEthernet
+    module: 2
+    card: 0
+    ports: 1-20
+  - name: TenGigabitEthernet
+    module: 3
+    card: 0
+    ports: 1-24
+port_channels:
+  2:
+    type: uplink
+    interfaces:
+      - TenGigabitEthernet1/1/1
+      - TenGigabitEthernet1/1/2
+      - TenGigabitEthernet3/1/1
+      - TenGigabitEthernet3/1/2
+uplinks:
+  - interface: Port-channel2
+stack_config:
+  - switch_id: 1
+    priority: 1
+  - switch_id: 2
+    priority: 15
+  - switch_id: 3
+    priority: 14

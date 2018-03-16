@@ -1,0 +1,33 @@
+<config>
+  <native xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-native">
+    <interface>
+      <Port-channel>
+        <name>34</name>
+        <description>Uplink to Core</description>
+        <switchport-conf>
+          <switchport>false</switchport>
+        </switchport-conf>
+        <ip>
+          <address>
+            <primary>
+              <address>10.4.40.18</address>
+              <mask>255.255.255.252</mask>
+            </primary>
+          </address>
+          <pim>
+            <sparse-mode xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-multicast">sparse-mode</sparse-mode>
+          </pim>
+        </ip>
+        <load-interval>30</load-interval>
+        <logging>
+          <event>
+            <link-status/>
+          </event>
+        </logging>
+        <carrier-delay xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-ethernet">
+          <msec>0</msec>
+        </carrier-delay>
+      </Port-channel>
+    </interface>
+  </native>
+</config>

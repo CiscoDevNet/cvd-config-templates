@@ -1,0 +1,14 @@
+<config>
+  <native xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-native">
+    <snmp-server>
+      <community xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-snmp">
+        <name>snmpro</name>
+        <RO/>
+      </community>
+      <community xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-snmp">
+        <name>snmprw</name>
+        <RW/>
+      </community>
+    </snmp-server>
+  </native>
+</config>

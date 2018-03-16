@@ -1,0 +1,13 @@
+#jinja2: lstrip_blocks: "true"
+{% set ranges = [] %}
+{% for intf in access_ports %}
+  {% if intf["module"] is defined %}
+    {% set _ = ranges.append(intf["name"] ~ intf["module"] ~ "/" ~ intf["card"] ~ "/" ~ intf["ports"]) %}
+  {% elif intf["card"] is defined %}
+    {% set _ = ranges.append(intf["name"] ~ intf["card"] ~ "/" ~ intf["ports"]) %}
+  {% else %}
+    {% set _ = ranges.append(intf["name"] ~ intf["ports"]) %}
+  {% endif %}
+{% endfor %}
+interface range {{ ranges | join(", ") }}
+  macro apply {{ desired_macro }}

@@ -1,0 +1,22 @@
+<config>
+  <native xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-native">
+    <ntp>
+      <source xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-ntp">
+        <Loopback>0</Loopback>
+      </source>
+    </ntp>
+    <snmp-server>
+      <trap-source xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-snmp">
+        <Loopback>0</Loopback>
+      </trap-source>
+    </snmp-server>
+    <ip>
+      <ssh>
+        <source-interface>Loopback0</source-interface>
+      </ssh>
+      <pim>
+        <register-source xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-multicast">Loopback0</register-source>
+      </pim>
+    </ip>
+  </native>
+</config>

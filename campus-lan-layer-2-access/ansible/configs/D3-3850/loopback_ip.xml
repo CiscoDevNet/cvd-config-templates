@@ -1,0 +1,20 @@
+<config>
+  <native xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-native">
+    <interface>
+      <Loopback>
+        <name>0</name>
+        <ip>
+          <address>
+            <primary>
+              <address>10.4.95.254</address>
+              <mask>255.255.255.255</mask>
+            </primary>
+          </address>
+          <pim>
+            <sparse-mode xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-multicast">sparse-mode</sparse-mode>
+          </pim>
+        </ip>
+      </Loopback>
+    </interface>
+  </native>
+</config>

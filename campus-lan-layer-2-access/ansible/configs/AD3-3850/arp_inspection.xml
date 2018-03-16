@@ -1,0 +1,11 @@
+<config>
+  <native xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-native">
+    <ip>
+      <arp>
+        <inspection>
+          <vlan>182-183</vlan>
+        </inspection>
+      </arp>
+    </ip>
+  </native>
+</config>

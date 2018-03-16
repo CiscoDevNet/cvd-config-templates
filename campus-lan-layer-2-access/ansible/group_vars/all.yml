@@ -1,0 +1,103 @@
+---
+provider:
+  host: "{{ ansible_host }}"
+  username: "{{ ansible_user }}"
+  auth_pass: "{{ ansible_ssh_pass }}"
+  password: "{{ ansible_ssh_pass }}"
+  timeout: 120
+enable_secret: C1sco123
+local_auth_accounts:
+  - username: admin
+    password: C1sco123
+    privilege_level: 15
+  - username: jacob
+    password: jacob
+    privilege_level: 15
+tacacs_server_group_name: TACACS-SERVERS
+tacacs_server:
+  name: TACACS-SERVER-1
+  ipv4_addr: 10.4.48.15
+  tacacs_key: tacman
+snmp_read_only_name: snmpro
+snmp_read_write_name: snmprw
+
+configs_dir: "./configs"
+domain_name: cisco.local
+active_directory_server: 10.4.48.10
+dns_server: 10.4.48.10
+dhcp_server: 10.4.48.10
+
+management_subnet: 10.4.95.0/25
+management_acl_subnets:
+  - 10.4.95.0/24
+  - 100.0.0.0/8
+
+oob_subnet: 172.16.33.0/25
+
+ntp_server: 10.4.48.17
+clock_timezone: "PST"
+clock_offset: "-8"
+clock_summer_time: PDT
+
+# The CVD doesn't mention it, but these would need to be setup *per data*
+# VLAN below.  A realistic deployment would require tweaking the data model.
+dhcp_server_subnet: 192.0.0.0/25
+dhcp_excl_low: 192.0.0.1
+dhcp_excl_high: 192.0.0.10
+
+mgmt_vlan: 195
+anti_vlan_hop: 999
+vlan_data:
+  180:
+    vlan_desc: Data-Sw1
+    vlan_name: wired_data
+    ipv4_network: 10.4.80.0/24
+  181:
+    vlan_desc: Voice-Sw1
+    vlan_name: wired_voice
+    ipv4_network: 10.4.81.0/24
+  182:
+    vlan_desc: Data-Sw2
+    vlan_name: wired_data
+    ipv4_network: 10.4.82.0/24
+  183:
+    vlan_desc: Voice-Sw2
+    vlan_name: wired_voice
+    ipv4_network: 10.4.83.0/24
+  184:
+    vlan_desc: Data-Sw3
+    vlan_name: wired_data
+    ipv4_network: 10.4.84.0/24 
+  185:
+    vlan_desc: Voice-Sw3
+    vlan_name: wired_voice
+    ipv4_network: 10.4.85.0/24
+  186:
+    vlan_desc: Data-Sw4
+    vlan_name: wired_data
+    ipv4_network: 10.4.86.0/24
+  187:
+    vlan_desc: Voice-Sw4
+    vlan_name: wired_voice
+    ipv4_network: 10.4.87.0/24
+  195:
+    vlan_desc: In-band Management VLAN
+    vlan_name: management
+    ipv4_network: 10.4.95.0/25
+  999:
+    vlan_desc: Anti-VLAN-hopping
+    vlan_name: anti_vlan_hopping
+
+eigrp_auth:
+  name: EIGRP-KEY
+  keys:
+    - id: 1
+      secret: C1sco123
+
+ospf_auth:
+  name: OSPF-KEY
+  keys:
+    - id: 1
+      secret: C1sco123
+# Options: pagp, lacp, force
+etherchannel_protocol: lacp

@@ -1,0 +1,9 @@
+macro name AccessEdgeQoS
+ trust device cisco-phone
+ service-policy input CISCO-PHONE
+ service-policy output 2P6Q3T
+@
+!
+macro name EgressQoS
+ service-policy output 2P6Q3T
+@

@@ -1,0 +1,42 @@
+#jinja2: lstrip_blocks: "true"
+<config>
+  <native xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-native">
+  {% set portchannel_ids = [] %}
+  {% for interface in uplinks %}
+    {% if interface["interface"].startswith("Port-channel") %}
+      {% set _ = portchannel_ids.append(interface["interface"].lstrip("Port-channel")) %}
+    {% endif %}
+  {% endfor %}
+  {% for id in portchannel_ids %}
+    <interface>
+      <Port-channel>
+        <name>{{ id }}</name>
+          <switchport>
+            <trunk xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch">
+              <native>
+                <vlan>{{ anti_vlan_hop }}</vlan>
+              </native>
+            </trunk>
+          </switchport>
+        <description>{{ "Port-channel" ~ id }}</description>
+      </Port-channel>
+    </interface>
+    {% for interface in port_channels[id | int]["interfaces"] %}
+      {% set interface_type = interface.split("Ethernet") %}
+    <interface>
+      <{{ interface_type[0] ~ "Ethernet" }}>
+        <name>{{ interface_type[1] }}</name>
+          <switchport>
+            <trunk xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch">
+              <native>
+                <vlan>{{ anti_vlan_hop }}</vlan>
+              </native>
+            </trunk>
+          </switchport>
+        <description>{{ "Port-channel" ~ id ~ " Member" }}</description>
+      </{{ interface_type[0] ~ "Ethernet" }}>
+    </interface>
+    {% endfor %}
+  {% endfor %}
+  </native>
+</config>

@@ -1,0 +1,19 @@
+#jinja2: lstrip_blocks: "true"
+<config>
+  <native xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-native">
+    <router>
+      <ospf xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-ospf">
+        <id>{{ ospf["id"] }}</id>
+      {% for network in ospf["summaries"] %}
+        <area>
+          <id>{{ network["area"] }}</id>
+          <range>
+            <address>{{ network["ipv4_network"] | ipaddr("network") }}</address>
+            <mask>{{ network["ipv4_network"] | ipaddr("netmask") }}</mask>
+          </range>
+        </area>
+      {% endfor %}
+      </ospf>
+    </router>
+  </native>
+</config>

@@ -1,0 +1,43 @@
+<config>
+  <native xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-native">
+    <interface>
+      <Port-channel>
+        <name>4</name>
+          <switchport>
+            <trunk xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch">
+              <native>
+                <vlan>999</vlan>
+              </native>
+            </trunk>
+          </switchport>
+        <description>Port-channel4</description>
+      </Port-channel>
+    </interface>
+    <interface>
+      <TenGigabitEthernet>
+        <name>1/1/7</name>
+          <switchport>
+            <trunk xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch">
+              <native>
+                <vlan>999</vlan>
+              </native>
+            </trunk>
+          </switchport>
+        <description>Port-channel4 Member</description>
+      </TenGigabitEthernet>
+    </interface>
+    <interface>
+      <TenGigabitEthernet>
+        <name>1/1/8</name>
+          <switchport>
+            <trunk xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch">
+              <native>
+                <vlan>999</vlan>
+              </native>
+            </trunk>
+          </switchport>
+        <description>Port-channel4 Member</description>
+      </TenGigabitEthernet>
+    </interface>
+  </native>
+</config>

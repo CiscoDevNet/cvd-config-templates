@@ -1,0 +1,27 @@
+#jinja2: lstrip_blocks: "true"
+<config>
+  <native xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-native">
+    <interface>
+{% for intf in access_ports %}
+  {% set low_port = (intf["ports"] | string).split("-")[0] | int %}
+  {% set high_port = (intf["ports"] | string).split("-")[1] | default(low_port) | int %}
+  {% for port in range(low_port, high_port + 1) %}
+    {% if intf["module"] is defined %}
+      {% set interface = intf["module"] ~ "/" ~ intf["card"] ~ "/" ~ port %}
+    {% elif intf["card"] is defined %}
+      {% set interface = intf["card"] ~ "/" ~ port %}
+    {% else %}
+      {% set interface = port %}
+    {% endif %}
+      <{{ intf["name"] }}>
+        <name>{{ interface }}</name>
+        <switchport>
+          <access xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch"></access>
+          <host xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch"/>
+        </switchport>
+      </{{ intf["name"] }}>
+  {% endfor %}
+{% endfor %}
+    </interface>
+  </native>
+</config>

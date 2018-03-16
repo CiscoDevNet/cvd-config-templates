@@ -1,0 +1,98 @@
+! Enable port-based QoS
+auto qos default
+! Class maps for 1P7Q4T 10Gbps and 40Gbps ports service policy
+class-map type lan-queuing match-any PRIORITY-QUEUE
+  match dscp ef
+  match dscp cs5
+  match dscp cs4
+  match cos 5
+class-map type lan-queuing match-any CONTROL-MGMT-QUEUE
+  match dscp cs7
+  match dscp cs6
+  match dscp cs3
+  match dscp cs2
+  match cos 3 6 7
+class-map type lan-queuing match-any MULTIMEDIA-CONFERENCING-QUEUE
+  match dscp af43
+  match dscp af42
+  match dscp af41
+  match cos 4
+class-map type lan-queuing match-any MULTIMEDIA-STREAMING-QUEUE
+  match dscp af33
+  match dscp af32
+  match dscp af31
+class-map type lan-queuing match-any TRANSACTIONAL-DATA-QUEUE
+  match dscp af23
+  match dscp af22
+  match dscp af21
+  match cos 2
+class-map type lan-queuing match-any BULK-DATA-QUEUE
+  match dscp af13
+  match dscp af12
+  match dscp af11
+class-map type lan-queuing match-any SCAVENGER-QUEUE
+  match dscp cs1
+  match cos 1
+!
+policy-map type lan-queuing 1P7Q4T
+  class PRIORITY-QUEUE
+    priority
+  class CONTROL-MGMT-QUEUE
+    bandwidth remaining percent 14
+    queue-buffers ratio 10
+  class MULTIMEDIA-CONFERENCING-QUEUE
+    bandwidth remaining percent 14
+    queue-buffers ratio 10
+    random-detect dscp-based
+    random-detect dscp 38 percent 70 100
+    random-detect dscp 36 percent 80 100
+    random-detect dscp 34 percent 90 100
+  class MULTIMEDIA-STREAMING-QUEUE
+    bandwidth remaining percent 14
+    queue-buffers ratio 10
+    random-detect dscp-based
+    random-detect dscp 30 percent 70 100
+    random-detect dscp 28 percent 80 100
+    random-detect dscp 26 percent 90 100
+  class TRANSACTIONAL-DATA-QUEUE
+    bandwidth remaining percent 14
+    queue-buffers ratio 10
+    random-detect dscp-based
+    random-detect dscp 22 percent 70 100
+    random-detect dscp 20 percent 80 100
+    random-detect dscp 18 percent 90 100
+  class BULK-DATA-QUEUE
+    bandwidth remaining percent 6
+    queue-buffers ratio 10
+    random-detect dscp-based
+    random-detect dscp 14 percent 70 100
+    random-detect dscp 12 percent 80 100
+    random-detect dscp 10 percent 90 100
+  class SCAVENGER-QUEUE
+    bandwidth remaining percent 2
+    queue-buffers ratio 10
+    random-detect dscp-based
+    random-detect dscp 8 percent 80 100
+  class class-default
+    queue-buffers ratio 25
+    random-detect dscp-based aggregate
+    random-detect dscp values 0 1 2 3 4 5 6 7 percent 80 100
+    random-detect dscp values 9 11 13 15 17 19 21 23 percent 80 100
+    random-detect dscp values 25 27 29 31 33 35 37 39 percent 80 100
+    random-detect dscp values 41 42 43 44 45 47 49 50 percent 80 100
+    random-detect dscp values 51 52 53 54 55 57 58 59 percent 80 100
+    random-detect dscp values 60 61 62 63 percent 80 100
+!
+table-map cos-discard-class-map
+  map from 0 to 0
+  map from 1 to 8
+  map from 2 to 16
+  map from 3 to 24
+  map from 4 to 32
+  map from 5 to 46
+  map from 6 to 48
+  map from 7 to 56
+!
+macro name EgressQoS
+  service-policy type lan-queuing output 1P7Q4T
+@

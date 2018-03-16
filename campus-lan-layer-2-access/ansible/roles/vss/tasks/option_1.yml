@@ -1,0 +1,77 @@
+---
+# OPTION 1 - Convert Cisco Catalyst 6807-XL, 6500-E, 6880-X, 4500E, and 4500-X to Virtual Switching System using Easy-VSS
+- name: STEP 1 - CONFIGURE TEMPORARY HOSTNAME
+  ios_config:
+    lines:
+      - "hostname VSS-Sw{{ vss_stack_num }}"
+      - switch virtual easy
+      
+- name: STEP 2 - ENABLE CONNECTIVITY BETWEEN SWITCH PAIRS
+  ios_config:
+    lines:
+      - no shut
+    parents:
+      - {{ item }}
+  with_items: vsl_links
+
+- name: STEP 3 - NOOP
+  meta: noop
+
+- name: "STEP 4 - CONVERT VSL LINKS - ***AND RELOAD***"
+  ios_command:
+    commands:
+      - "switch convert mode easy-virtual-switch links {% for interface in vsl_links %}{{ interface }} {% endfor %} domain {{ vsl_domain }}\ryes\r"
+
+- name: WAIT FOR REBOOT
+  wait_for:
+    port: 22
+
+- name: STEP 6 - VALIDATE SSO MODE
+  ios_command:
+    commands:
+      - show switch virtual redundancy
+  register: redundancy
+
+- name: STEP 6B - ASSERT SSO MODE
+  assert:
+    that: 'STANDBY HOT' in redundancy.stdout
+
+- name: STEP 7 - SET HOSTNAME
+  include_role:
+    name: hostname
+
+- name: STEP 8 - CONFIGURE DUAL-ACTIVE MECHANISM
+  ios_config:
+    lines:
+      - dual-active fast-hello
+      - no shutdown
+    parents:
+      - {{ item }}
+  with_items: "{{ vsl_backup_links }}"
+
+- name: STEP 9 and 10 - SET VIRTUAL MAC ADDRESS FOR VSS SYSTEM
+  ios_config:
+    lines:
+      - mac-address use-virtual
+    parents:
+      - "switch virtual domain {{ vss_domain }}"
+
+- name: STEP 11 - SET VIRTUAL MAC ADDRESS FOR VSS SYSTEM
+  ios_config:
+    lines:
+      - standby port delay 300
+      - standby port bringup 1 2
+    parents:
+      - "switch virtual domain {{ vss_domain }}"
+  when: vsl_stack_num > 1
+
+- name: STEP 12 - COPY RUN START RELOAD
+  ios_command:
+    provider: "{{ provider }}"
+    commands:
+      - "reload\r"
+  failed_when: false
+
+- name: WAIT FOR REBOOT
+  wait_for:
+    port: 22

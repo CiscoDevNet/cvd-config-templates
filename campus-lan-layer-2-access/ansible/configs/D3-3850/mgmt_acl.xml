@@ -1,0 +1,65 @@
+<config>
+  <native xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-native">
+    <ip>
+      <access-list>
+        <standard xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-acl">
+          <name>MANAGEMENT</name>
+          <access-list-seq-rule>
+            <sequence>10</sequence>
+            <permit>
+              <std-ace>
+                <ipv4-prefix>10.4.95.0</ipv4-prefix>
+                <mask>0.0.0.255</mask>
+              </std-ace>
+            </permit>
+          </access-list-seq-rule>
+          <access-list-seq-rule>
+            <sequence>20</sequence>
+            <permit>
+              <std-ace>
+                <ipv4-prefix>100.0.0.0</ipv4-prefix>
+                <mask>0.255.255.255</mask>
+              </std-ace>
+            </permit>
+          </access-list-seq-rule>
+        </standard>
+      </access-list>
+    </ip>
+    <snmp-server>
+      <community xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-snmp">
+        <name>snmpro</name>
+        <RO/>
+        <access-list-name>MANAGEMENT</access-list-name>
+      </community>
+      <community xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-snmp">
+        <name>snmprw</name>
+        <RW/>
+        <access-list-name>MANAGEMENT</access-list-name>
+      </community>
+    </snmp-server>
+    <line>
+      <vty>
+        <first>0</first>
+        <last>4</last>
+        <access-class>
+          <acccess-list>
+            <direction>in</direction>
+            <access-list>MANAGEMENT</access-list>
+            <vrf-also/>
+          </acccess-list>
+        </access-class>
+      </vty>
+      <vty>
+        <first>5</first>
+        <last>15</last>
+        <access-class>
+          <acccess-list>
+            <direction>in</direction>
+            <access-list>MANAGEMENT</access-list>
+            <vrf-also/>
+          </acccess-list>
+        </access-class>
+      </vty>
+    </line>
+  </native>
+</config>

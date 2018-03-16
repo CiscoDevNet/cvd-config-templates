@@ -1,0 +1,15 @@
+- name: BUILD STACK SWITCH PRIORITY CLI DATA
+  template:
+    src: stack_switch_priority.j2
+    dest: "{{ configs_dir }}/{{ inventory_hostname }}/stack_switch_priority.cfg"
+
+- name: SET STACK PRIORITY CONFIGURATION PATH
+  set_fact:
+    stack_priority_config_path: "{{ lookup('file', configs_dir ~'/'~ inventory_hostname ~'/'~ 'stack_switch_priority.cfg').split('\n') }}"
+
+- name: PUSH CONFIGURATION TO REMOTES
+  ios_command:
+    provider: "{{ provider }}"
+    commands: "{{ item }}\r\n"
+  with_items:
+    - "{{ stack_priority_config_path|default([]) }}"

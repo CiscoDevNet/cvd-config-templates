@@ -1,0 +1,2 @@
+---
+- include_tasks: "option_{{ dist_ha_option }}.yml"

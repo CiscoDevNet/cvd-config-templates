@@ -1,0 +1,10 @@
+- name: BUILD IP_MROUTE_DISC_RP XML DATA
+  template:
+    src: ip_mroute_disc_rp.j2
+    dest: "{{ configs_dir }}/{{ inventory_hostname }}/ip_mroute_disc_rp.xml"
+- name: PUSH NETCONF TO REMOTES
+  netconf_config:
+    host: "{{ ansible_host }}"
+    username: "{{ ansible_user }}"
+    password: "{{ ansible_ssh_pass }}"
+    src: "{{ configs_dir }}/{{ inventory_hostname }}/ip_mroute_disc_rp.xml"

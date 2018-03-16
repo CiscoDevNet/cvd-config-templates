@@ -1,0 +1,5 @@
+#jinja2: lstrip_blocks: "true"
+{% for port_channel in port_channels %}
+interface Port-channel{{ port_channel["id"] }}
+ macro apply {{ desired_macro }}
+{% endfor %}

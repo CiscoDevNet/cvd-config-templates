@@ -1,0 +1,11 @@
+macro name AccessEdgeQoS
+ auto qos voip cisco-phone
+@
+!
+macro name EgressQoS
+ mls qos trust dscp
+ queue-set 1
+ srr-queue bandwidth share 1 30 35 5
+ priority-queue out
+@
+

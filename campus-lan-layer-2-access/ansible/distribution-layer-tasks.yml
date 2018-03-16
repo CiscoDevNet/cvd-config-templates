@@ -1,0 +1,10 @@
+---
+# VSS is in proc1
+# - import_playbook: distribution_procedure_1.yml
+- import_playbook: distribution_procedure_2.yml
+- import_playbook: distribution_procedure_3.yml
+- import_playbook: distribution_procedure_4.yml
+- import_playbook: distribution_procedure_6.yml
+- import_playbook: distribution_procedure_7.yml
+- import_playbook: distribution_procedure_8.yml
+- import_playbook: distribution_procedure_5.yml

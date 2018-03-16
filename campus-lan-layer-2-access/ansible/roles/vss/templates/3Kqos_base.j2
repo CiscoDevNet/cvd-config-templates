@@ -1,0 +1,70 @@
+class-map match-any PRIORITY-QUEUE
+  match
+  dscp ef
+class-map match-any VIDEO-PRIORITY-QUEUE
+  match dscp cs5
+  match dscp cs4
+class-map match-any CONTROL-MGMT-QUEUE
+  match dscp cs7
+  match dscp cs6
+  match dscp cs3
+  match dscp cs2
+class-map match-any MULTIMEDIA-CONFERENCING-QUEUE
+  match dscp af41
+  match dscp af42
+  match dscp af43
+class-map match-any MULTIMEDIA-STREAMING-QUEUE
+  match dscp af31
+  match dscp af32
+  match dscp af33
+class-map match-any TRANSACTIONAL-DATA-QUEUE
+  match dscp af21
+  match dscp af22
+  match dscp af23
+class-map match-any BULK-SCAVENGER-DATA-QUEUE
+  match dscp af11
+  match dscp af12
+  match dscp af13
+  match dscp cs1
+!
+policy-map 2P6Q3T
+  class PRIORITY-QUEUE
+    priority level 1
+    police rate percent 10
+  class VIDEO-PRIORITY-QUEUE
+    priority level 2
+    police rate percent 20
+    class CONTROL-MGMT-QUEUE
+    bandwidth remaining percent 10
+    queue-buffers ratio 10
+  class MULTIMEDIA-CONFERENCING-QUEUE
+    bandwidth remaining percent 10
+    queue-buffers ratio 10
+    queue-limit dscp af43 percent 80
+    queue-limit dscp af42 percent 90
+    queue-limit dscp af41 percent 100
+  class MULTIMEDIA-STREAMING-QUEUE
+    bandwidth remaining percent 10
+    queue-buffers ratio 10
+    queue-limit dscp af33 percent 80
+    queue-limit dscp af32 percent 90
+    queue-limit dscp af31 percent 100
+  class TRANSACTIONAL-DATA-QUEUE
+    bandwidth remaining percent 10
+    queue-buffers ratio 10
+    queue-limit dscp af23 percent 80
+    queue-limit dscp af22 percent 90
+    queue-limit dscp af21 percent 100
+  class BULK-SCAVENGER-DATA-QUEUE
+    bandwidth remaining percent 5
+    queue-buffers ratio 10
+    queue-limit dscp values af13 cs1 percent 80
+    queue-limit dscp values af12 percent 90
+    queue-limit dscp values af11 percent 100
+  class class-default
+    bandwidth remaining percent 25
+    queue-buffers ratio 25
+!
+macro name EgressQoS
+  service-policy output 2P6Q3T
+@

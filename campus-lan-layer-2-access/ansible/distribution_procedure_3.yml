@@ -1,0 +1,15 @@
+---
+- name: DISTRIBUTION PROCEDURE 3
+  hosts: distribution
+  connection: local
+  gather_facts: no
+  vars:
+    switch_role: "distribution"
+  roles:
+    - bpdu_guard
+    - loopback_ip
+    # - name: oob_ip
+    #   when: oob_interface is defined
+    - role: vss_exclude
+      when: model | string in ['6500'] and oob_interface is defined
+    - sys_process_source_iface

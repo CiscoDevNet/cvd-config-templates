@@ -1,0 +1,31 @@
+---
+model: 3650
+inband_mgmt_address: 10.4.95.7
+data_vlan: 184
+voice_vlan: 185
+access_ports:
+  - name: GigabitEthernet
+    module: 1
+    card: 0
+    ports: 1-30
+  - name: GigabitEthernet
+    module: 2
+    card: 0
+    ports: 1-30
+port_channels:
+  2:
+    type: uplink
+    interfaces:
+      - GigabitEthernet1/1/1
+      - GigabitEthernet1/1/2
+      - GigabitEthernet3/1/1
+      - GigabitEthernet3/1/2
+uplinks:
+  - interface: Port-channel3
+stack_config:
+  - switch_id: 1
+    priority: 1
+  - switch_id: 2
+    priority: 15
+  - switch_id: 3
+    priority: 14

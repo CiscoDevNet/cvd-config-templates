@@ -1,0 +1,21 @@
+---
+- name: SETUP TASKS
+  hosts: all
+  gather_facts: false
+  tasks:
+    - name: CLEAN UP OLD FILES
+      file:
+        path: "{{ configs_dir }}"
+        state: absent
+      delegate_to: localhost
+      run_once: true
+      when: CLEAN_CONFIG|default(false)
+
+    - name: CREATE CONFIG PATHS
+      file:
+        path: "{{ configs_dir }}/{{ inventory_hostname }}"
+        state: directory
+      delegate_to: localhost
+
+- import_playbook: access-layer-tasks.yml
+- import_playbook: distribution-layer-tasks.yml

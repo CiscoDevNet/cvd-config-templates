@@ -1,0 +1,17 @@
+<config>
+  <native xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-native">
+      <interface>
+        <Vlan>
+          <name>{{ mgmt_vlan }}</name>
+          <ip>
+            <address>
+              <primary>
+                <address>{{ inband_mgmt_address }}</address>
+                <mask>{{ vlan_data[mgmt_vlan]['ipv4_network']|ipaddr('netmask') }}</mask>
+              </primary>
+            </address>
+          </ip>
+        </Vlan>
+      </interface>
+  </native>
+</config>

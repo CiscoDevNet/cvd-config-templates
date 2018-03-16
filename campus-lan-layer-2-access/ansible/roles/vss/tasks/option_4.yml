@@ -1,0 +1,29 @@
+---
+# OPTION 4 - Configure the Cisco Catalyst 3850 platform
+- name: STEP 1 - SET THE PREFERRED ACTIVE SWITCH
+  include_role:
+    name: stack_switch_priority
+
+- name: STEP 2 - SET ETHERCHANNELS TO USE THE TRAFFIC SOURCE AND DESTINATION IP ADDRESS
+  ios_config:
+    lines:
+      - port-channel load-balance vlan-src-dst-mixed-ip-port
+      
+- name: STEP 3 - CONFIGURE BASE QOS POLICY
+  template:
+    src: 3Kqos_base.j2
+    dest: "{{ configs_dir }}/{{ inventory_hostname }}/vss_3Kqos_base.cfg"
+
+- name: PUSH CONFIG TO REMOTES
+  ios_config:
+    save_when: modified
+    provider: "{{ provider }}"
+    src: "{{ configs_dir }}/{{ inventory_hostname }}/vss_3Kqos_base.cfg"
+
+- name: STEP 4 - CONFIGURE AUTO UPGRADE
+  include_role:
+    name: stack_switch_auto_upgrade
+
+- name: STEP 5 - CONFIGURE STACK POWER
+  include_role:
+    name: stack_switch_power

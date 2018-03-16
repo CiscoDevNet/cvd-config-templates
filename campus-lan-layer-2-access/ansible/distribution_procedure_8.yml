@@ -1,0 +1,21 @@
+---
+- name: DISTRIBUTION PROCEDURE 8
+  hosts: distribution
+  connection: local
+  gather_facts: no
+  vars:
+    switch_role: "distribution"
+  roles:
+    - distribution_ports_to_core
+    - name: distribution_portchannel_to_core
+      when: uplinks is defined and uplinks[0]["interface"].startswith("Port-channel")
+    - name: eigrp_summary
+      when: routing_protocol == 'eigrp'
+    - name: eigrp_authentication
+      when: routing_protocol == 'eigrp'
+    - name: ospf_summary
+      when: ospf is defined and ospf
+    - name: ospf_authentication
+      when: routing_protocol == 'eigrp'
+    - name: distribution_ports_ospf
+      when: routing_protocol == 'ospf'
