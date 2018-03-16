@@ -1,7 +1,0 @@
-[access]
-AD3-3850 ansible_host=10.10.10.253 ansible_user=user ansible_ssh_pass=pass
-AD3-3650 ansible_host=10.10.10.254 ansible_user=user ansible_ssh_pass=pass
-AD3-9300 ansible_host=10.10.10.248 ansible_user=user ansible_ssh_pass=pass
-
-[distribution]
-D3-3850 ansible_host=10.10.10.247 ansible_user=user ansible_ssh_pass=pass
