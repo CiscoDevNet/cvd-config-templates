@@ -1,4 +1,4 @@
-Cisco IOS-XE Automation via Netconf
+Cisco IOS-XE Automation via NETCONF
 ===================================
 
 The objective of this README is to provide documentation for the playbooks related to Cisco's [Campus LAN Layer 2 Access with Simplified Distribution Deployment Guide](https://www.cisco.com/c/dam/en/us/td/docs/solutions/CVD/Oct2015/CVD-Campus_LAN_L2_Access_Simplified_Dist_Deployment-Oct2015.pdf).
@@ -14,29 +14,28 @@ Each playbook executes the tasks in a given role based on the procedures defined
 
 ### Note about zero-touch or power-on provisioning
 
-These playbooks do not handle out-of-box configuration and require a miniminum amount of configuration and connectivity to work.  We assume the device can be reached via SSH from the Ansible server and that at least one admin (privilege 15) account is present.  It is highly recommended that HA and VSS configuration be done ahead of time as part of the bootstrap configuration as well.
+These playbooks do not handle out-of-box configuration and require a minimum amount of configuration and connectivity to work.  We assume the device can be reached via SSH from the Ansible server and that at least one admin (privilege 15) account is present.  It is highly recommended that HA and VSS configuration be done ahead of time as part of the bootstrap configuration as well.
 
 ## Tested Topology
 
 | Hostname | Device information |
 | -------- | ------------------ |
 | D3-3850 | WS-C3850 stacked distribution switch. |
+| AD3-9300 | C9300 standalone access switch. |
 | AD3-3850 | WS-C3850 stacked access switch. |
 | AD3-3650 | WS-C3650 stacked access switch. |
-| AD3-9300 | C9300 standalone access switch. |
 
 ![ Tested Topology ](docs/topology.png)
 
 ## Tested platorms and software
 
-| Platform                | Software                                  |
-| ----------------------- | ----------------------------------------- |
-| WS-C3850-12X48U         | CAT3K_CAA-UNIVERSALK9-M Version 16.6.2    |
-| WS-C3850-24XU           | CAT3K_CAA-UNIVERSALK9-M Version 16.6.2    |
-| WS-C3850-24XS           | CAT3K_CAA-UNIVERSALK9-M Version 16.6.2    |
-| WS-C3650-48PS           | CAT3K_CAA-UNIVERSALK9-M Version 16.6.2    |
-| C9300-48U               | CAT9K_IOSXE Version 16.6.2                |
-
+| Platform      | PID                     | Software                                  | 
+| ------------- | ----------------------- | ----------------------------------------- |
+| Catalyst 9000 | C9300-48U               | CAT9K_IOSXE Version 16.6.2                |
+| Catalyst 3850 | WS-C3850-12X48U         | CAT3K_CAA-UNIVERSALK9-M Version 16.6.2    |
+| Catalyst 3850 | WS-C3850-24XU           | CAT3K_CAA-UNIVERSALK9-M Version 16.6.2    |
+| Catalyst 3850 | WS-C3850-24XS           | CAT3K_CAA-UNIVERSALK9-M Version 16.6.2    |
+| Catalyst 3650 | WS-C3650-48PS           | CAT3K_CAA-UNIVERSALK9-M Version 16.6.2    |
 
 
 ## Playbooks
