@@ -16,6 +16,10 @@ Each playbook executes the tasks in a given role based on the procedures defined
 
 These playbooks do not handle out-of-box configuration and require a minimum amount of configuration and connectivity to work.  We assume the device can be reached via SSH from the Ansible server and that at least one admin (privilege 15) account is present.  It is highly recommended that HA and VSS configuration be done ahead of time as part of the bootstrap configuration as well.
 
+### Getting Started with Ansible and IOSXE with NETCONF
+
+For instructions on how to quickly get Ansible setup on your local machine with the necessary NETCONF libraries, you can use [this readme](../../ansible-setup.md). For instructions on how to get your IOS-XE device setup for NETCONF, you can use [this readme](../../iosxe-netconf-setup.md).
+
 ## Tested Topology
 
 | Hostname | Device information |
@@ -29,7 +33,7 @@ These playbooks do not handle out-of-box configuration and require a minimum amo
 
 ## Tested platorms and software
 
-| Platform      | PID                     | Software                                  | 
+| Platform      | PID                     | Software                                  |
 | ------------- | ----------------------- | ----------------------------------------- |
 | Catalyst 9000 | C9300-48U               | CAT9K_IOSXE Version 16.6.2                |
 | Catalyst 3850 | WS-C3850-12X48U         | CAT3K_CAA-UNIVERSALK9-M Version 16.6.2    |
@@ -90,89 +94,89 @@ The playbooks are designed to run in a single distribution "domain" where all vl
 `group_vars/all.yml`:  
 
     # Authenticaion data.
-	# Use this method if credentials are per host, otherwise you may specify domain-wide credentials here.
-	provider:
-	  host: "{{ ansible_host }}"
-	  username: "{{ ansible_user }}"
-	  auth_pass: "{{ ansible_ssh_pass }}"
-	  password: "{{ ansible_ssh_pass }}"
-	  timeout: 120
-	enable_secret: C1sco123
-	snmp_read_only_name: snmpro
-	snmp_read_write_name: snmprw
+    # Use this method if credentials are per host, otherwise you may specify domain-wide credentials here.
+    provider:
+      host: "{{ ansible_host }}"
+      username: "{{ ansible_user }}"
+      auth_pass: "{{ ansible_ssh_pass }}"
+      password: "{{ ansible_ssh_pass }}"
+      timeout: 120
+    enable_secret: C1sco123
+    snmp_read_only_name: snmpro
+    snmp_read_write_name: snmprw
     # Local directory or fully-qualified path to the folder where as-built configuration snippets will be stored.
-	configs_dir: "./configs"
-	tacacs_server_group_name: TACACS-SERVERS
-	tacacs_server:
-	  name: TACACS-SERVER-1
-	  ipv4_addr: 10.4.48.15
-	  tacacs_key: tacman
-	local_auth_accounts:
-	  - username: admin
-		password: C1sco123
-		privilege_level: 15
-	  - username: jacob
-		password: jacob
-		privilege_level: 15
-
-	domain_name: cisco.local
-	active_directory_server: 10.4.48.10
-	dns_server: 10.4.48.10
-	# For relaying
-	dhcp_server: 10.4.48.10
-
-	# This is the subnet where access-layer in-band SVI's live.
-	management_subnet: 10.4.95.0/25
-	management_acl_subnets:
-	  - 10.4.95.0/24
-	  - 100.0.0.0/8
-
-	# **Optional**
-	# Please refer to the CVD for details.
-	oob_subnet: 172.16.33.0/25
-
-	# NTP and clock settings
-	ntp_server: 10.4.48.17
-	clock_timezone: "PST"
-	clock_offset: "-8"
-	clock_summer_time: PDT
-
-	# **Optional**
-	# The CVD doesn't mention it explicitly, but these would need to be setup *per data*
-	# VLAN below.  A realistic deployment would require tweaking the data model.
-	dhcp_server_subnet: 192.0.0.0/25
-	dhcp_excl_low: 192.0.0.1
-	dhcp_excl_high: 192.0.0.10
-
-	# In-band access-layer management vlan.  This is the SVI that will be created on the access-layer switches.
-	mgmt_vlan: 195
-	# Anti-vlan-hopping vlan ID.
-	anti_vlan_hop: 999
-	
-	# List of VLAN's for this layer-2 domain.  All three keys *must* be filled out for each vlan.
-	vlan_data:
-	  180:
-		vlan_desc: Data-Sw1
-		vlan_name: wired_data
-		ipv4_network: 10.4.80.0/24
-	  181:
-		vlan_desc: Voice-Sw1
-		vlan_name: wired_voice
-		ipv4_network: 10.4.81.0/24
-
-	# Routing protocol.  EIGRP or OSPF, mutually exclusive.
-	eigrp_auth:
-	  name: EIGRP-KEY
-	  keys:
-		- id: 1
-		  secret: C1sco123
-	ospf_auth:
-	  name: OSPF-KEY
-	  keys:
-		- id: 1
-		  secret: C1sco123
-	# Options: pagp, lacp, force
-	etherchannel_protocol: lacp
+    configs_dir: "./configs"
+    tacacs_server_group_name: TACACS-SERVERS
+    tacacs_server:
+      name: TACACS-SERVER-1
+      ipv4_addr: 10.4.48.15
+      tacacs_key: tacman
+    local_auth_accounts:
+      - username: admin
+    	password: C1sco123
+    	privilege_level: 15
+      - username: jacob
+    	password: jacob
+    	privilege_level: 15
+    
+    domain_name: cisco.local
+    active_directory_server: 10.4.48.10
+    dns_server: 10.4.48.10
+    # For relaying
+    dhcp_server: 10.4.48.10
+    
+    # This is the subnet where access-layer in-band SVI's live.
+    management_subnet: 10.4.95.0/25
+    management_acl_subnets:
+      - 10.4.95.0/24
+      - 100.0.0.0/8
+    
+    # **Optional**
+    # Please refer to the CVD for details.
+    oob_subnet: 172.16.33.0/25
+    
+    # NTP and clock settings
+    ntp_server: 10.4.48.17
+    clock_timezone: "PST"
+    clock_offset: "-8"
+    clock_summer_time: PDT
+    
+    # **Optional**
+    # The CVD doesn't mention it explicitly, but these would need to be setup *per data*
+    # VLAN below.  A realistic deployment would require tweaking the data model.
+    dhcp_server_subnet: 192.0.0.0/25
+    dhcp_excl_low: 192.0.0.1
+    dhcp_excl_high: 192.0.0.10
+    
+    # In-band access-layer management vlan.  This is the SVI that will be created on the access-layer switches.
+    mgmt_vlan: 195
+    # Anti-vlan-hopping vlan ID.
+    anti_vlan_hop: 999
+    
+    # List of VLAN's for this layer-2 domain.  All three keys *must* be filled out for each vlan.
+    vlan_data:
+      180:
+    	vlan_desc: Data-Sw1
+    	vlan_name: wired_data
+    	ipv4_network: 10.4.80.0/24
+      181:
+    	vlan_desc: Voice-Sw1
+    	vlan_name: wired_voice
+    	ipv4_network: 10.4.81.0/24
+    
+    # Routing protocol.  EIGRP or OSPF, mutually exclusive.
+    eigrp_auth:
+      name: EIGRP-KEY
+      keys:
+    	- id: 1
+    	  secret: C1sco123
+    ospf_auth:
+      name: OSPF-KEY
+      keys:
+    	- id: 1
+    	  secret: C1sco123
+    # Options: pagp, lacp, force
+    etherchannel_protocol: lacp
 
 Distribution-switch host variables  
 `host_vars/D3-3850.yml`:  
@@ -192,14 +196,14 @@ Distribution-switch host variables
 	eigrp:
 	  name: LAN
 	  as: 100
-      # Advertised in `network` statements
+	  # Advertised in `network` statements
 	  networks:
 		- 10.4.0.0/20
 		- 10.4.0.0/15
 	  summaries:
 		- 10.4.0.0/19
-    # Mutually exclusive.  Each protocol takes slightly different keys.
-    ospf:
+	# Mutually exclusive.  Each protocol takes slightly different keys.
+	ospf:
 	  id: 100
 	  networks:
 		- ipv4_network: 10.4.0.0/20
@@ -226,7 +230,7 @@ Distribution-switch host variables
 	  #
 	  - id: 1
 		type: access_downlink
-        # Name of access-layer neighbor used in port description
+	    # Name of access-layer neighbor used in port description
 		access_nei: AD3-4507-1
 		member_vlans:
 		  - "{{ mgmt_vlan }}"
@@ -236,21 +240,21 @@ Distribution-switch host variables
 		  - TenGigabitEthernet1/0/1
 		  - TenGigabitEthernet1/0/2
 	  - id: 34
-        # This is a layer-3 port channel
+	    # This is a layer-3 port channel
 		type: routed_uplink
 		ipv4_addr: 10.4.40.18
 		interfaces:
 		  - TenGigabitEthernet1/1/3
 		  - TenGigabitEthernet1/1/4
-    # Indicates upstream links to core or WAN layer
+	# Indicates upstream links to core or WAN layer
 	uplinks:
 	  - interface: Port-channel34
-    # **Optional**
-    # See CVD for details
+	# **Optional**
+	# See CVD for details
 	oob_interface:
 	  interface: GigabitEthernet1/0/32
 	  ipv4_addr: 172.16.33.4
-    # These are *untested*!
+	# These are *untested*!
 	# dist_ha_option:
 	#   1: Convert Cisco Catalyst 6807-XL, 6500-E, 6880-X, 4500E, and 4500-X to Virtual Switching System using Easy-VSS
 	#   2: Configure Cisco Catalyst 6807-XL, 6500-E, or 6880-X Virtual Switching System
